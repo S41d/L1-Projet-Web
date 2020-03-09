@@ -1,0 +1,37 @@
+header img {
+    height: 50px;
+}
+header {
+    background-color: rgb(221, 221, 221);
+    height: 3.25em;
+    line-height: 3.25em;
+    position: absolute;
+    text-align: right;
+    left: 0;
+    top: 2em;
+    width: 100%;
+}
+
+header .logo {
+    top: 0;
+    position: absolute;
+}
+
+header a {
+    right: 0;
+    display: block;   
+    margin: 0 10px; 
+    text-decoration: none;
+    color: rgb(121, 121, 121);
+    transition: 0.25s;
+}
+
+header a:hover {
+    color: rgb(97, 180, 180);
+    transition: 0.25s;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row-reverse;
+}
