@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Accueil</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <header>
         <div class="logo">
@@ -14,13 +14,13 @@
                 <img src="../logo.jpeg" alt="logo">
             </a>
         </div>
-        <div class="nav">
+        <div class="nav"s>
             <nav id="nav">
                 <a href="">Connexion</a>
                 <a href="">Compte</a>
                 <div class="search">
                     <a id="rechercher" onclick="bar_de_recherche()">
-                        <img src="../search_icon.svg" alt="logo rechercher">
+                        <i class="material-icons">search</i>
                     </a>
                     <input type="text" id="barderechercher" size="30" placeholder="blabla">
                 </div>
@@ -62,5 +62,4 @@
     </div>
     <script src="script.js"></script>
 </body>
-
 </html>
