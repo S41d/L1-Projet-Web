@@ -48,9 +48,15 @@ header nav {
     background-color: white;
     height: 3em;
     border-radius: 3.25em;
-    padding-left: 5px;
+    padding-left: 3.5px;
     transform: scale(-100%, 0);
     transition: 0.25s;
+    outline: none;
+    border: none;
+}
+
+.search a i::selection {
+    background-color: white;
 }
 
 .search-open {
