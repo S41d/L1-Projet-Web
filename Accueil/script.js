@@ -9,6 +9,6 @@ function bar_de_recherche() {
     }
     else {
         searchinput.style.width = "0px"
-        searchinput.style.paddingLeft = "3.5px"
+        searchinput.style.paddingLeft = "0px"
     }   
 }
