@@ -1,90 +1,24 @@
-body {
-    margin: 0;
-    padding: 0;
-}
-
-header img {
-    height: 50px;
-}
-header {
-    background-color: rgb(221, 221, 221);
-    height: 4em;
-    line-height: 4em;
-    text-align: right;
-    left: 0;
-    top: 2em;
-    width: 100%;
-}
-
-header .logo {
-    height: 4em;
-    position: absolute;
-}
-
-header a {
-    right: 0;
-    display: block;   
-    margin: 0 10px; 
-    text-decoration: none;
-    color: rgb(121, 121, 121);
+.body a{
     transition: 0.25s;
-    cursor: pointer;
+    width: 320px;
+    height: 180px;
+    background-size: cover;
 }
 
-header a:hover {
-    color: rgb(97, 180, 180);
-    transition: 0.25s;
-}
-
-header nav {
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.search {
-    margin: 0.5em 0;
-    display: flex;
-    flex-direction: row-reverse;
-    background-color: white;
-    height: 3em;
-    border-radius: 3.25em;
-    padding-left: 3.5px;
-    transform: scale(-100%, 0);
-    transition: 0.25s;
-    outline: none;
-    border: none;
-}
-
-.search a i::selection {
-    background-color: white;
-}
-
-.search-open {
-    transform: scale(1);
-    transition: 0.25s;
-}
-
-#barderechercher {
-    line-height: 3.25em;
-    border: none;
-    outline: none;
-    background: none;
-    border-radius: 100px;
-    width: 0px;
-}
-
-.body img {
-    height: 200px;
-    transition: 0.25s;
-}
-
-.body img:hover {
+.body a:hover {
     transform: scale(1.1);
     transition: 0.25s;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(indianred, rgb(255, 207, 117))
+}
 .body {
+    margin: 50px;
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
