@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: linear-gradient(indianred, rgb(255, 207, 117))
+    background: linear-gradient(indianred, rgb(255, 207, 117));
 }
 .body {
     margin: 50px;

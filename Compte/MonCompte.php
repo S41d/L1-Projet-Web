@@ -9,6 +9,25 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
+<?php
+    $sql = new mysqli('localhost', 'root', '', 'projet');
+
+    $id = 4;
+    $query = "select * from users where Iduser = $id";
+
+    $result = $sql->query($query) or die($sql->error);
+    $row = $result->fetch_assoc();
+
+    $query2 = "INSERT INTO users values ";
+
+    $Nom_Prenom = $row["Nom_Prenom"];
+    $Pseudo = $row["Pseudo"];
+    $Email = $row["Email"];
+    $Password = $row["Password"];
+    $Avatar = $row["Avatar"];
+    $Avatar = $row
+?>
+
 <body>
     <header>
         <div class="logo">
@@ -30,19 +49,19 @@
 
     <div class="body">
         <img src="../logo.jpeg" alt="">
-        <label style="margin-bottom: 20px;">Saïd Mohammad Zuhair</label>
+        <label style="margin-bottom: 20px;"><?php echo $Nom_Prenom?></label>
         
         <div class="labels">
             <label class="label-left">Nom</label>
-            <label class="label-right">Saïd Mohammad Zuhair</label>
+            <label class="label-right"><?php echo $Nom_Prenom?></label>
          </div>
         <div class="labels">
             <label class="label-left">Pseudo</label>
-            <label  class="label-right">s41d</label>
+            <label  class="label-right"><?php echo $Pseudo?></label>
         </div>
         <div class="labels">
             <label class="label-left">Email</label>
-            <label class="label-right">m.masoud247@gmail.com</label>
+            <label class="label-right"><?php echo $Email?></label>
         </div>
         <div class="labels">
             <label class="label-left">Type Compte</label>
