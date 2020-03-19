@@ -1,8 +1,8 @@
 <?php
 session_start();
-$Nom_Prenom = $_SESSION["Nom_Prenom"];
-$Pseudo = $_SESSION["Pseudo"];
-$Email = $_SESSION["Email"];
+$Nom_Prenom = $_SESSION['Nom_Prenom'] ?? 'null';
+$Pseudo = $_SESSION['Pseudo'] ?? 'null';
+$Email = $_SESSION['Email'] ?? 'null';
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ $Email = $_SESSION["Email"];
             <img src="../logo.jpeg" alt="logo">
         </a>
     </div>
-    <div class="nav" s>
+    <div class="nav">
         <nav id="nav">
             <div class="search">
                 <a id="rechercher" onclick="bar_de_recherche()">

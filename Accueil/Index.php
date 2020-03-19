@@ -21,6 +21,7 @@ session_start();
     </div>
     <div class="nav">
         <nav id="nav">
+            <a href="../Forum/Main.php">Forum</a>
             <a href="../Con-Ins/connexion.php" id="connexion">Connexion</a>
             <a href="../Compte/profile.php" id="compte">Compte</a>
             <div class="search">
@@ -67,21 +68,23 @@ session_start();
 <script src="script.js"></script>
 <?php
 
-if (isset($_SESSION['Iduser']) && isset($_SESSION['Pseudo'])) {
+if (isset($_SESSION['Iduser'], $_SESSION['Pseudo'])) {
     echo
-        "</br> <script>
-    window.onload = function () {
+    "</br> <script>
+    function connexion() {
         let con = document.getElementById('connexion');
         con.style.display = \"none\";
     }
+    connexion();
     </script>";
 } else {
     echo
-        "</br> <script>
-    window.onload = function () {
+    "</br> <script>
+    function compte () {
         let con = document.getElementById('compte');
         con.style.display = \"none\";
     }
+    compte();
     </script>";
 }
 ?>

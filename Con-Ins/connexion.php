@@ -8,27 +8,24 @@ if (isset($_POST['connecter'])) {
     $pseudoconnect = htmlspecialchars($_POST['connexionpseudo']);
     $mdpconnect = password_hash($_POST['connexionmdp'], PASSWORD_DEFAULT);
 
-    if (!empty($pseudoconnect) AND !empty($mdpconnect)) {
-        $requser = $bdd->prepare("Select * from users where Pseudo = ?");
+    if (!empty($pseudoconnect) && !empty($mdpconnect)) {
+        $requser = $bdd->prepare('Select * from users where Pseudo = ?');
         $requser->execute(array($pseudoconnect));
         $row = $requser->fetch(PDO::FETCH_ASSOC);
-        $mdp = isset($row['Password']) ? $row['Password'] : "null";
+        $mdp = $row['Password'] ?? 'null';
         if (password_verify($_POST['connexionmdp'], $mdp)) {
-            $Iduser = isset($row['Iduser']) ? $row['Iduser'] : "null";
-            $_SESSION['Iduser'] = $Iduser;
-            $Nom_Prenom = isset($row['Nom_Prenom']) ? $row['Nom_Prenom'] : "null";
-            $_SESSION['Nom_Prenom'] = $Nom_Prenom;
-            $Pseudo = isset($row['Pseudo']) ? $row['Pseudo'] : "null";
-            $_SESSION['Pseudo'] = $Pseudo;
-            $_SESSION['Email'] = isset($row['Email']) ? $row['Email'] : "null";
-            header("Location: ../Compte/profile.php");
+            $_SESSION['Iduser'] = $row['Iduser'] ?? 'null';
+            $_SESSION['Nom_Prenom'] = $row['Nom_Prenom'] ?? 'null';
+            $_SESSION['Pseudo'] = $row['Pseudo'] ?? 'null';
+            $_SESSION['Email'] = $row['Email'] ?? 'null';
+            header('Location: ../Compte/profile.php');
 
         } else {
-            $erreur = "Le pseudo ou le mot de passe est incorrect !";
+            $erreur = 'Le pseudo ou le mot de passe est incorrect !';
         }
 
     } else {
-        $erreur = "Il faut remplir tous les champs !";
+        $erreur = 'Il faut remplir tous les champs !';
     }
 }
 
