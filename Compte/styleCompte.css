@@ -34,6 +34,7 @@ label {
     border-radius: 50px;
     margin: 15px;
     padding: 15px;
+    flex: 1;
 }
 
 .label-left {
@@ -42,4 +43,25 @@ label {
 
 .label-right {
     background-color: aquamarine;
+}
+
+#logout {
+    border-radius: 50px;
+    margin-top: 20px;
+    height: 70px;
+    align-items: center;
+    background-color: rgb(255, 94, 94);
+}
+
+#logout a {
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    text-decoration: none;
+    font-size: 2em;
+    color: white;
+}
+
+#logout a:visited {
+    color: white;
 }

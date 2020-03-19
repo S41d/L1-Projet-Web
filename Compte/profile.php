@@ -20,7 +20,7 @@ $Email = $_SESSION["Email"];
 
 <header>
     <div class="logo">
-        <a href="../Accueil/Index.html">
+        <a href="../Accueil/Index.php">
             <img src="../logo.jpeg" alt="logo">
         </a>
     </div>
@@ -56,9 +56,8 @@ $Email = $_SESSION["Email"];
         <label class="label-left">Type Compte</label>
         <label class="label-right">Payant</label>
     </div>
-    <div class="labels">
-        <label class="label-left">mqlkdjflq</label>
-        <label class="label-right">yes</label>
+    <div class="labels" id="logout">
+        <a href="logout.php">logout</a>
     </div>
 
 </div>
