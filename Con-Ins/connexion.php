@@ -18,6 +18,7 @@ if (isset($_POST['connecter'])) {
             $_SESSION['Name'] = $row['Name'] ?? 'null';
             $_SESSION['Pseudo'] = $row['Pseudo'] ?? 'null';
             $_SESSION['Email'] = $row['Email'] ?? 'null';
+            $_SESSION['Type'] = $row['accountType'] ?? 'null';
             header('Location: ../Compte/profile.php');
 
         } else {

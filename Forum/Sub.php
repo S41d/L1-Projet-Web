@@ -1,18 +1,23 @@
 <?php
 session_start();
 include '../sessioncheck.php';
+
+$database = new mysqli('localhost', 'root', '', 'projet');
+$idsub = $_GET['idsub'];
+$querysub = "Select * from sub where idsub=$idsub";
+$resultsub = $database->query($querysub);
+$sub = $resultsub->fetch_assoc();
 ?>
 
 <!doctype html>
-<html lang="fr" >
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title><?php echo $sub['namesub']; ?></title>
     <link rel="stylesheet" href="../header.css">
     <link rel="stylesheet" href="styles/Style-Subs.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-</head>
 <body>
 
 <header>
@@ -36,21 +41,15 @@ include '../sessioncheck.php';
 </header>
 
 <div class="Posts">
-
-<?php
-function showPosts() {
-    $database = new mysqli('localhost', 'root', '', 'projet');
-    $idsub = $_GET['idsub'];
+    <?php
     $query = "Select * from posts where idsub=$idsub";
     $result = $database->query($query);
-    while ($posts = $result->fetch_assoc()){
-        echo '<a href="Posts.php?id='. $posts['Idpost'] .'">'. $posts['Title'] .'</a>'. '</br>';
+    while ($posts = $result->fetch_assoc()) {
+        echo '<a href="Posts.php?id=' . $posts['Idpost'] . '">' . $posts['Title'] . '</a>' . '</br>';
     }
-}
-showPosts();
-sessioncheck();
-?>
 
+    sessioncheck();
+    ?>
 </div>
 
 <script src="../Accueil/script.js"></script>
