@@ -15,7 +15,7 @@ if (isset($_POST['connecter'])) {
         $mdp = $row['Password'] ?? 'null';
         if (password_verify($_POST['connexionmdp'], $mdp)) {
             $_SESSION['Iduser'] = $row['Iduser'] ?? 'null';
-            $_SESSION['Nom_Prenom'] = $row['Nom_Prenom'] ?? 'null';
+            $_SESSION['Name'] = $row['Name'] ?? 'null';
             $_SESSION['Pseudo'] = $row['Pseudo'] ?? 'null';
             $_SESSION['Email'] = $row['Email'] ?? 'null';
             header('Location: ../Compte/profile.php');

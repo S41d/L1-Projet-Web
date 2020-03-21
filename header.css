@@ -56,7 +56,7 @@ header nav {
     background-color: white;
     height: 3em;
     border-radius: 3.25em;
-    padding-left: 3.5px;
+    padding-left: 0;
     transition: 0.25s;
     outline: none;
     border: none;
@@ -77,5 +77,5 @@ header nav {
     outline: none;
     background: none;
     border-radius: 100px;
-    width: 0px;
+    width: 0;
 }

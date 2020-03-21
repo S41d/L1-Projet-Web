@@ -8,7 +8,7 @@ function bar_de_recherche() {
         searchinput.classList.add('search-open');
     }
     else {
-        searchinput.style.width = "0px";
+        searchinput.style.width = "0";
         searchinput.style.paddingLeft = "0px";
     }   
 }

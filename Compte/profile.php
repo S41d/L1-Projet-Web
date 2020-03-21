@@ -1,6 +1,6 @@
 <?php
 session_start();
-$Nom_Prenom = $_SESSION['Nom_Prenom'] ?? 'null';
+$Name = $_SESSION['Name'] ?? 'null';
 $Pseudo = $_SESSION['Pseudo'] ?? 'null';
 $Email = $_SESSION['Email'] ?? 'null';
 ?>
@@ -38,11 +38,11 @@ $Email = $_SESSION['Email'] ?? 'null';
 
 <div class="body">
     <img src="../logo.jpeg" alt="">
-    <label style="margin-bottom: 20px;"><?php echo $Nom_Prenom ?></label>
+    <label style="margin-bottom: 20px;"><?php echo $Name ?></label>
 
     <div class="labels">
         <label class="label-left">Nom</label>
-        <label class="label-right"><?php echo $Nom_Prenom ?></label>
+        <label class="label-right"><?php echo $Name ?></label>
     </div>
     <div class="labels">
         <label class="label-left">Pseudo</label>

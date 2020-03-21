@@ -1,0 +1,27 @@
+body {
+    background-color: cadetblue;
+    margin: 0;
+    padding: 0;
+}
+
+.Posts a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    border: gray 1px solid;
+    width: 250px;
+    font-size: 2em;
+}
+
+.Posts a:hover {
+    color: gray;
+}
+
+.Posts {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

@@ -18,7 +18,7 @@ if (isset($_POST['inscris'])) {
                     $reqpseudo = $bdd->prepare("SELECT * FROM users WHERE Pseudo = ?");
                     $reqpseudo->execute(array($pseudo));
                     $pseudoexist = $reqpseudo->rowCount();
-                    if ($pseudoexist ==0) {
+                    if ($pseudoexist == 0) {
 
                           if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                               $reqmail = $bdd->prepare("SELECT * FROM users WHERE Email = ?");
@@ -27,7 +27,7 @@ if (isset($_POST['inscris'])) {
                               if($mailexist == 0) {
                                     if ($_POST['mdp'] == $_POST['mdp2']) {
 
-                                        $insertuser = $bdd->prepare("INSERT INTO users(Nom_Prenom, Pseudo, Email, Password) VALUES (?, ?, ?, ?)");
+                                        $insertuser = $bdd->prepare("INSERT INTO users(Name, Pseudo, Email, Password) VALUES (?, ?, ?, ?)");
                                         $insertuser->execute(array($nom, $pseudo, $mail, $mdp));
                                         $erreur = "Compte créer!";
 
