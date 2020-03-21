@@ -55,7 +55,7 @@ header nav {
     flex-direction: row-reverse;
     background-color: white;
     height: 3em;
-    border-radius: 3.25em;
+    border-radius: 10%;
     padding-left: 0;
     transition: 0.25s;
     outline: none;

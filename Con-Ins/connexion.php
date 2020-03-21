@@ -36,21 +36,18 @@ if (isset($_POST['connecter'])) {
 <head>
     <meta charset="utf-8">
     <title>Connexion</title>
+    <link rel="stylesheet" href="styleConnIns.css">
 </head>
 <body>
-<h1>Connexion</h1>
 
-<form action="connexion.php" method="post">
-    <label for="connexionpseudo">Pseudo</label> <br>
-    <input type="text" name="connexionpseudo" placeholder="Pseudo"/> <br>
-    <br>
-    <label for="connexionmdp">Mot de passe</label> <br>
-    <input type="password" name="connexionmdp" placeholder="*****"/> <br>
-    <br>
-    <input type="submit" name="connecter" value="Se connecter"/>
-
-    <p>ou <a href="inscrire.php">inscrivez-vous</a></p>
-
+<form autocomplete="off" action="connexion.php" method="post">
+    <div class="box">
+        <h1>Connexion</h1>
+        <input autocomplete="off" type="text" name="connexionpseudo" placeholder="Pseudo"/>
+        <input autocomplete="off" type="password" name="connexionmdp" placeholder="Mot de passe"/>
+        <input type="submit" name="connecter" value="Se connecter"/>
+        <p>ou <a href="inscrire.php">inscrivez-vous</a></p>
+    </div>
 </form>
 
 <?php

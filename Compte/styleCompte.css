@@ -1,5 +1,6 @@
 body {
-    background: linear-gradient(indianred, rgb(255, 207, 117));
+    background: #1c1c1c;
+    height: 100vh;
 }
 
 .body {
