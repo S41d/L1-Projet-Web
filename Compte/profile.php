@@ -40,7 +40,7 @@ $Type = $_SESSION['Type'] ?? 'null';
 
 <div class="body">
     <img src="../logo.jpeg" alt="">
-    <label style="margin-bottom: 20px;"><?php echo $Name ?></label>
+    <label style="margin-bottom: 20px; color: wheat"><?php echo $Name ?></label>
 
     <div class="labels">
         <label class="label-left">Nom</label>
@@ -61,7 +61,6 @@ $Type = $_SESSION['Type'] ?? 'null';
     <div class="labels" id="logout">
         <a href="logout.php">logout</a>
     </div>
-
 </div>
 
 <script src="../Accueil/script.js"></script>

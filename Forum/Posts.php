@@ -20,6 +20,7 @@ $post = $result->fetch_assoc();
     <link rel="stylesheet" href="../header.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
+    <link rel="stylesheet" href="styles/Style-posts.css">
 </head>
 <body>
 
@@ -44,17 +45,13 @@ $post = $result->fetch_assoc();
     </div>
 </header>
 
+<div class="body">
 <?php
-echo $post['Title'];
-echo '</br>';
-echo $post['Body'];
-echo '</br>';
-
-
-
-
+echo '<div class="Title">'. $post['Title'] .'</div>';
+echo '<div class="post">'. $post['Body'] . '</div>';
 sessioncheck();
 ?>
+</div>
 
 <script src="../Accueil/script.js"></script>
 </body>

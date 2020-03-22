@@ -41,7 +41,7 @@ include '../sessioncheck.php';
     $result = $database->query($subquery) or die('can\'t connect to server to get subs');
     while ($subname = $result->fetch_assoc()) {
         echo '<a href="Sub.php?idsub=' . $subname['idsub'] . '">' . $subname['namesub'] . '</a>';
-        echo '</br>';
+       // echo '</br>';
     }
     sessioncheck();
     ?>

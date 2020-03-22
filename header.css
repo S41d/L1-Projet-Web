@@ -1,5 +1,5 @@
 *::selection {
-    background-color: gray;
+    background-color: #b4b4b4;
 }
 
 body {
@@ -17,6 +17,7 @@ header {
     left: 0;
     top: 2em;
     width: 100%;
+    border-bottom: #616161 solid 2px;
 }
 
 header .logo {
@@ -32,10 +33,11 @@ header a {
     color: rgb(255, 255, 255);
     transition: 0.25s;
     cursor: pointer;
+    outline: none;
 }
 
 header a:hover {
-    color: rgb(243, 155, 128);
+    color: #af7ac5;
     transition: 0.25s;
 }
 
@@ -45,7 +47,7 @@ header nav {
 }
 
 #rechercher {
-    color: rgb(243, 155, 128);
+    color: rgb(88, 209, 222);
     margin-right: 10px;
 }
 
@@ -55,8 +57,8 @@ header nav {
     flex-direction: row-reverse;
     background-color: white;
     height: 3em;
-    border-radius: 10%;
-    padding-left: 0;
+    border-radius: 100px;
+    padding: 0 5px;
     transition: 0.25s;
     outline: none;
     border: none;

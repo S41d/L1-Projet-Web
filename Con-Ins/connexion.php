@@ -4,10 +4,8 @@ session_start();
 $bdd = new PDO('mysql:host=127.0.0.1; dbname=projet', 'root', '');
 
 if (isset($_POST['connecter'])) {
-
     $pseudoconnect = htmlspecialchars($_POST['connexionpseudo']);
     $mdpconnect = password_hash($_POST['connexionmdp'], PASSWORD_DEFAULT);
-
     if (!empty($pseudoconnect) && !empty($mdpconnect)) {
         $requser = $bdd->prepare('Select * from users where Pseudo = ?');
         $requser->execute(array($pseudoconnect));
@@ -19,12 +17,10 @@ if (isset($_POST['connecter'])) {
             $_SESSION['Pseudo'] = $row['Pseudo'] ?? 'null';
             $_SESSION['Email'] = $row['Email'] ?? 'null';
             $_SESSION['Type'] = $row['accountType'] ?? 'null';
-            header('Location: ../Compte/profile.php');
-
+            header('Location: ../Accueil/Index.php');
         } else {
             $erreur = 'Le pseudo ou le mot de passe est incorrect !';
         }
-
     } else {
         $erreur = 'Il faut remplir tous les champs !';
     }
