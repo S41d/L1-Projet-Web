@@ -23,7 +23,7 @@ $sub = $resultsub->fetch_assoc();
 <header>
     <div class="logo">
         <a href="../Accueil/Index.php">
-            <img src="../logo.jpeg" alt="logo">
+            logo
         </a>
     </div>
     <div class="nav">

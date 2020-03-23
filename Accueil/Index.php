@@ -1,7 +1,7 @@
 <?php
 include 'films.php';
-session_start();
 include '../sessioncheck.php';
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +35,7 @@ include '../sessioncheck.php';
                 <a id="rechercher" onclick="bar_de_recherche()">
                     <i class="material-icons">search</i>
                 </a>
-                <input type="text" id="barderechercher" size="30" placeholder="Rechercher">
+                <input type="text" id="barderechercher" size="30" placeholder="Rechercher" onkeyup="searchFilms()">
             </div>
         </nav>
     </div>
@@ -48,12 +48,13 @@ include '../sessioncheck.php';
     <a href="#">Connexion</a>
 </div>
 
-<div class="body">
+<div class="body" id="body">
     <?php
     showFims();
     ?>
 </div>
 <script src="../style_general/script.js"></script>
+<script src="searchFilms.js"></script>
 <?php
 sessioncheck();
 ?>

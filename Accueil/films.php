@@ -6,6 +6,6 @@ function showFims()
     $result = $database->query($queryfilm) or die($database->error);
     while ($photos = $result->fetch_assoc()) {
         $link = implode($photos);
-        echo "<a href=\"\" style=\"background-image: url($link) ;\"></a>";
+        echo "<a href=\"\" style=\"background-image: url($link);\" id=\"$link\" '></a>";
     }
 }
