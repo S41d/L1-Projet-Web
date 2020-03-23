@@ -1,5 +1,6 @@
 <?php
-function sessioncheck(){
+function sessioncheck()
+{
     if (isset($_SESSION['Iduser'], $_SESSION['Pseudo'])) {
         echo
         "</br> <script>

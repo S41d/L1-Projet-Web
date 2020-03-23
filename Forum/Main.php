@@ -6,7 +6,7 @@ include '../sessioncheck.php';
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../style_general/header.css">
     <link rel="stylesheet" href="styles/Style-main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
@@ -41,13 +41,12 @@ include '../sessioncheck.php';
     $result = $database->query($subquery) or die('can\'t connect to server to get subs');
     while ($subname = $result->fetch_assoc()) {
         echo '<a href="Sub.php?idsub=' . $subname['idsub'] . '">' . $subname['namesub'] . '</a>';
-       // echo '</br>';
     }
     sessioncheck();
     ?>
 </div>
 
-<script src="../Accueil/script.js"></script>
+<script src="../style_general/script.js"></script>
 </body>
 
 </html>

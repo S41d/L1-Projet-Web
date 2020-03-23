@@ -17,7 +17,7 @@ $post = $result->fetch_assoc();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $post['Title'] ?></title>
-    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../style_general/header.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link rel="stylesheet" href="styles/Style-posts.css">
@@ -46,14 +46,14 @@ $post = $result->fetch_assoc();
 </header>
 
 <div class="body">
-<?php
-echo '<div class="Title">'. $post['Title'] .'</div>';
-echo '<div class="post">'. $post['Body'] . '</div>';
-sessioncheck();
-?>
+    <?php
+    echo '<div class="Title">' . $post['Title'] . '</div>';
+    echo '<div class="post">' . $post['Body'] . '</div>';
+    sessioncheck();
+    ?>
 </div>
 
-<script src="../Accueil/script.js"></script>
+<script src="../style_general/script.js"></script>
 </body>
 </html>
 

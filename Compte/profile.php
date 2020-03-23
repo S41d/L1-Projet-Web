@@ -12,7 +12,7 @@ $Type = $_SESSION['Type'] ?? 'null';
 <head>
     <meta charset="UTF-8">
     <title>Mon Compte</title>
-    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../style_general/header.css">
     <link rel="stylesheet" href="styleCompte.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
@@ -40,7 +40,7 @@ $Type = $_SESSION['Type'] ?? 'null';
 
 <div class="body">
     <img src="../logo.jpeg" alt="">
-    <label style="margin-bottom: 20px; color: wheat"><?php echo $Name ?></label>
+    <label style="margin-bottom: 20px; color: white"><h1><?php echo $Name ?></h1></label>
 
     <div class="labels">
         <label class="label-left">Nom</label>
@@ -63,7 +63,7 @@ $Type = $_SESSION['Type'] ?? 'null';
     </div>
 </div>
 
-<script src="../Accueil/script.js"></script>
+<script src="../style_general/script.js"></script>
 </body>
 
 </html>

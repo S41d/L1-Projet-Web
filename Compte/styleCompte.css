@@ -9,7 +9,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    align-items: center;  
+    align-items: center;
 }
 
 label {
@@ -40,10 +40,15 @@ label {
 
 .label-left {
     background: linear-gradient(to right, #af7ac5, rgb(88, 209, 222));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    text-align: center;
+    font-size: 1.4em;
 }
 
 .label-right {
     background: linear-gradient(to right, rgb(88, 209, 222), #af7ac5);
+    color: white;
 }
 
 #logout {

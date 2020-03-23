@@ -9,18 +9,21 @@ include '../sessioncheck.php';
 <head>
     <meta charset="UTF-8">
     <title>Accueil</title>
-    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../style_general/header.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
+    <link rel="stylesheet" href="../style_general/sidebar.css">
 </head>
 <body>
-<div class="sidebar"></div>
 
 <header>
     <div class="logo">
+        <a id="sandwitch-icon" onclick="sidebar()">
+            <i class="material-icons">menu</i>
+        </a>
         <a href="../Accueil/Index.php">
-            <img src="../logo.jpeg" alt="logo">
+            logo
         </a>
     </div>
     <div class="nav">
@@ -38,14 +41,21 @@ include '../sessioncheck.php';
     </div>
 </header>
 
+<div class="sidebar" id="sidebar">
+    <a href="#">Accueil</a>
+    <a href="#">Forum</a>
+    <a href="#">Compte</a>
+    <a href="#">Connexion</a>
+</div>
+
 <div class="body">
     <?php
     showFims();
     ?>
 </div>
-<script src="script.js"></script>
+<script src="../style_general/script.js"></script>
 <?php
-    sessioncheck();
+sessioncheck();
 ?>
 </body>
 </html>

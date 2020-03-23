@@ -14,7 +14,7 @@ $sub = $resultsub->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <title><?php echo $sub['namesub']; ?></title>
-    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../style_general/header.css">
     <link rel="stylesheet" href="styles/Style-Subs.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
@@ -52,7 +52,7 @@ $sub = $resultsub->fetch_assoc();
     ?>
 </div>
 
-<script src="../Accueil/script.js"></script>
+<script src="../style_general/script.js"></script>
 </body>
 </html>
 
