@@ -5,8 +5,8 @@ include '../sessioncheck.php';
 $database = new mysqli('localhost', 'root', '', 'projet');
 $idsub = $_GET['idsub'];
 $querysub = "Select * from sub where idsub=$idsub";
-$resultsub = $database->query($querysub);
-$sub = $resultsub->fetch_assoc();
+$resultsub = $database -> query($querysub);
+$sub = $resultsub -> fetch_assoc();
 ?>
 
 <!doctype html>
@@ -15,6 +15,7 @@ $sub = $resultsub->fetch_assoc();
     <meta charset="UTF-8">
     <title><?php echo $sub['namesub']; ?></title>
     <link rel="stylesheet" href="../style_general/header.css">
+    <link rel="stylesheet" href="../style_general/sidebar.css">
     <link rel="stylesheet" href="styles/Style-Subs.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
@@ -22,6 +23,9 @@ $sub = $resultsub->fetch_assoc();
 
 <header>
     <div class="logo">
+        <a id="sandwitch-icon" onmouseover="sidebar()">
+            <i class="material-icons">menu</i>
+        </a>
         <a href="../Accueil/Index.php">
             logo
         </a>
@@ -34,22 +38,32 @@ $sub = $resultsub->fetch_assoc();
                 <a id="rechercher" onclick="bar_de_recherche()">
                     <i class="material-icons">search</i>
                 </a>
-                <input type="text" id="barderechercher" size="30" placeholder="Rechercher">
+                <input type="text" id="barderechercher" size="30"
+                       placeholder="Rechercher">
             </div>
         </nav>
     </div>
 </header>
 
-<div class="Posts">
-    <?php
-    $query = "Select * from posts where idsub=$idsub";
-    $result = $database->query($query);
-    while ($posts = $result->fetch_assoc()) {
-        echo '<a href="Posts.php?id=' . $posts['Idpost'] . '">' . $posts['Title'] . '</a>' . '</br>';
-    }
+<div class="sidebar" id="sidebar">
+    <a href="../Accueil/Index.php">Accueil</a>
+    <a href="Main.php">Forum</a>
+    <a href="../Compte/profile.php">Compte</a>
+    <a href="../Con-Ins/connexion.php">Connexion</a>
+</div>
 
-    sessioncheck();
-    ?>
+<div class="body">
+    <div class="Posts">
+        <?php
+        $query = "Select * from posts where idsub=$idsub";
+        $result = $database -> query($query);
+        while ($posts = $result -> fetch_assoc()) {
+            echo '<a href="Posts.php?id=' . $posts['Idpost'] . '">' . $posts['Title'] . '</a>' . '</br>';
+        }
+
+        sessioncheck();
+        ?>
+    </div>
 </div>
 
 <script src="../style_general/script.js"></script>

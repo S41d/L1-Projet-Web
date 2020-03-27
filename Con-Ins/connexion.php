@@ -7,9 +7,9 @@ if (isset($_POST['connecter'])) {
     $pseudoconnect = htmlspecialchars($_POST['connexionpseudo']);
     $mdpconnect = password_hash($_POST['connexionmdp'], PASSWORD_DEFAULT);
     if (!empty($pseudoconnect) && !empty($mdpconnect)) {
-        $requser = $bdd->prepare('Select * from users where Pseudo = ?');
-        $requser->execute(array($pseudoconnect));
-        $row = $requser->fetch(PDO::FETCH_ASSOC);
+        $requser = $bdd -> prepare('Select * from users where Pseudo = ?');
+        $requser -> execute(array($pseudoconnect));
+        $row = $requser -> fetch(PDO::FETCH_ASSOC);
         $mdp = $row['Password'] ?? 'null';
         if (password_verify($_POST['connexionmdp'], $mdp)) {
             $_SESSION['Iduser'] = $row['Iduser'] ?? 'null';
@@ -18,10 +18,12 @@ if (isset($_POST['connecter'])) {
             $_SESSION['Email'] = $row['Email'] ?? 'null';
             $_SESSION['Type'] = $row['accountType'] ?? 'null';
             header('Location: ../Accueil/Index.php');
-        } else {
+        }
+        else {
             $erreur = 'Le pseudo ou le mot de passe est incorrect !';
         }
-    } else {
+    }
+    else {
         $erreur = 'Il faut remplir tous les champs !';
     }
 }
@@ -39,9 +41,11 @@ if (isset($_POST['connecter'])) {
 <form autocomplete="off" action="connexion.php" method="post">
     <div class="box">
         <h1>Connexion</h1>
-        <input autocomplete="off" type="text" name="connexionpseudo" placeholder="Pseudo"/>
-        <input autocomplete="off" type="password" name="connexionmdp" placeholder="Mot de passe"/>
-        <input type="submit" name="connecter" value="Se connecter"/>
+        <input autocomplete="off" type="text" name="connexionpseudo"
+               placeholder="Pseudo" />
+        <input autocomplete="off" type="password" name="connexionmdp"
+               placeholder="Mot de passe" />
+        <input type="submit" name="connecter" value="Se connecter" />
         <p>ou <a href="inscrire.php">inscrivez-vous</a></p>
     </div>
 </form>

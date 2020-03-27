@@ -15,43 +15,50 @@ if (isset($_POST['inscris'])) {
         if ($nomlength <= 50) {
 
             if ($pseudolength <= 30) {
-                $reqpseudo = $bdd->prepare("SELECT * FROM users WHERE Pseudo = ?");
-                $reqpseudo->execute(array($pseudo));
-                $pseudoexist = $reqpseudo->rowCount();
+                $reqpseudo = $bdd -> prepare("SELECT * FROM users WHERE Pseudo = ?");
+                $reqpseudo -> execute(array($pseudo));
+                $pseudoexist = $reqpseudo -> rowCount();
                 if ($pseudoexist == 0) {
 
                     if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-                        $reqmail = $bdd->prepare("SELECT * FROM users WHERE Email = ?");
-                        $reqmail->execute(array($mail));
-                        $mailexist = $reqmail->rowCount();
+                        $reqmail = $bdd -> prepare("SELECT * FROM users WHERE Email = ?");
+                        $reqmail -> execute(array($mail));
+                        $mailexist = $reqmail -> rowCount();
                         if ($mailexist == 0) {
                             if ($_POST['mdp'] == $_POST['mdp2']) {
 
-                                $insertuser = $bdd->prepare("INSERT INTO users(Name, Pseudo, Email, Password) VALUES (?, ?, ?, ?)");
-                                $insertuser->execute(array($nom, $pseudo, $mail, $mdp));
+                                $insertuser = $bdd -> prepare("INSERT INTO users(Name, Pseudo, Email, Password) VALUES (?, ?, ?, ?)");
+                                $insertuser -> execute(array($nom, $pseudo, $mail, $mdp));
                                 $erreur = "Compte créer!";
 
-                            } else {
+                            }
+                            else {
                                 $erreur = "Les mots de passes ne correspondent pas!";
                             }
-                        } else {
+                        }
+                        else {
                             $erreur = "L'adresse mail est déjà utilisée!";
                         }
-                    } else {
+                    }
+                    else {
                         $erreur = "L'adresse mail n'est pas valide!";
                     }
-                } else {
+                }
+                else {
                     $erreur = "Désolé, ce pseudo est déjà pris!";
                 }
-            } else {
+            }
+            else {
                 $erreur = "Le pseudo doit contenir 30 caractères mamimum!";
             }
 
-        } else {
+        }
+        else {
             $erreur = "Le nom doit faire 50 caractères maximum!";
         }
 
-    } else {
+    }
+    else {
         $erreur = "Il faut compléter tous les champs!";
     }
 
@@ -71,17 +78,20 @@ if (isset($_POST['inscris'])) {
 <form autocomplete="off" action="inscrire.php" method="post">
     <div class="box">
         <h1>Inscription</h1>
-        <input autocomplete="off" type="text" name="nom" placeholder="Votre nom" id="nom"
-               value="<?php if (isset($nom['nom'])) {
+        <input autocomplete="off" type="text" name="nom" placeholder="Votre nom"
+               id="nom"
+               value="<?php if (isset($nom)) {
                    echo $nom;
                } ?>">
 
-        <input autocomplete="off" type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo"
-               value="<?php if (isset($pseudo['pseudo'])) {
+        <input autocomplete="off" type="text" name="pseudo" id="pseudo"
+               placeholder="Votre pseudo"
+               value="<?php if (isset($pseudo)) {
                    echo $pseudo;
                } ?>">
-        <input autocomplete="off" type="email" name="mail" id="mail" placeholder="Votre email"
-               value="<?php if (isset($mail['mail'])) {
+        <input autocomplete="off" type="email" name="mail" id="mail"
+               placeholder="Votre email"
+               value="<?php if (isset($mail)) {
                    echo $mail;
                } ?>">
         <input type="password" name="mdp" id="mdp" placeholder="*****">

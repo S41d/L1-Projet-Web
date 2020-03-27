@@ -5,8 +5,8 @@ include '../sessioncheck.php';
 $postid = $_GET['id'];
 $database = new mysqli('localhost', 'root', '', 'projet');
 $postquery = "Select * from posts where Idpost = $postid ";
-$result = $database->query($postquery) or die('can\'t connect to server to get posts');
-$post = $result->fetch_assoc();
+$result = $database -> query($postquery) or die('can\'t connect to server to get posts');
+$post = $result -> fetch_assoc();
 ?>
 
 <!doctype html>
@@ -18,6 +18,7 @@ $post = $result->fetch_assoc();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $post['Title'] ?></title>
     <link rel="stylesheet" href="../style_general/header.css">
+    <link rel="stylesheet" href="../style_general/sidebar.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link rel="stylesheet" href="styles/Style-posts.css">
@@ -26,6 +27,9 @@ $post = $result->fetch_assoc();
 
 <header>
     <div class="logo">
+        <a id="sandwitch-icon" onclick="sidebar()">
+            <i class="material-icons">menu</i>
+        </a>
         <a href="../Accueil/Index.php">
             logo
         </a>
@@ -39,11 +43,19 @@ $post = $result->fetch_assoc();
                 <a id="rechercher" onclick="bar_de_recherche()">
                     <i class="material-icons">search</i>
                 </a>
-                <input type="text" id="barderechercher" size="30" placeholder="Rechercher">
+                <input type="text" id="barderechercher" size="30"
+                       placeholder="Rechercher">
             </div>
         </nav>
     </div>
 </header>
+
+<div class="sidebar" id="sidebar">
+    <a href="../Accueil/Index.php">Accueil</a>
+    <a href="Main.php">Forum</a>
+    <a href="../Compte/profile.php">Compte</a>
+    <a href="../Con-Ins/connexion.php">Connexion</a>
+</div>
 
 <div class="body">
     <?php

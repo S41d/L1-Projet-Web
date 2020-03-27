@@ -70,32 +70,55 @@ CREATE TABLE `films`
 --
 
 INSERT INTO `films` (`Idfilm`, `Title`, `Link-film`, `Autorfilm`, `Link-photo`)
-VALUES (1, '3D Kanojo', './Films/3d-kanojo.jpg', 'Mao Nanami', './Photos/3d-kanojo.jpg'),
-       (2, 'Adventure Time', './Films/Adventure-Time', 'Pendelton Ward', './Photos/Adventure-Time.jpg'),
-       (3, 'Avatar - The Last Airbender', './Films/Avatar', 'Bryan Konietzko & Michael Dante DiMartino',
+VALUES (1, '3D Kanojo', './Films/3d-kanojo.jpg', 'Mao Nanami',
+        './Photos/3d-kanojo.jpg'),
+       (2, 'Adventure Time', './Films/Adventure-Time', 'Pendelton Ward',
+        './Photos/Adventure-Time.jpg'),
+       (3, 'Avatar - The Last Airbender', './Films/Avatar',
+        'Bryan Konietzko & Michael Dante DiMartino',
         './Photos/Avatar.jpg'),
-       (4, 'Coraline', './Films/Coraline', 'Neil Gaiman', './Photos/Coraline.jpg'),
-       (5, 'Fullmetal Alchemist - Brotherhood', './Films/FMA', 'Hiromu Arakawa', './Photos/FMA.png'),
-       (6, 'Inception', './Films/Inception', 'Christopher Nolan', './Photos/Inception.jpg'),
-       (7, 'Intouchables', './Films/Intouchables', 'Philippe Pozzo di Borgo', './Photos/Intouchables.jpg'),
-       (8, 'Jack et la mécanique du coeur', './Films/Jack', 'Mathias Malzieu', './Photos/Jack.jpg'),
-       (9, 'Lucifer', './Films/Lucifer', 'Neil Gaiman, Sam Kieth & Mike Dringenberg', './Photos/Lucifer.jpg'),
-       (10, 'Mr Robot', './Films/Mr-robot', 'Sam Esmail', './Photos/Mr-robot.jpg'),
+       (4, 'Coraline', './Films/Coraline', 'Neil Gaiman',
+        './Photos/Coraline.jpg'),
+       (5, 'Fullmetal Alchemist - Brotherhood', './Films/FMA', 'Hiromu Arakawa',
+        './Photos/FMA.png'),
+       (6, 'Inception', './Films/Inception', 'Christopher Nolan',
+        './Photos/Inception.jpg'),
+       (7, 'Intouchables', './Films/Intouchables', 'Philippe Pozzo di Borgo',
+        './Photos/Intouchables.jpg'),
+       (8, 'Jack et la mécanique du coeur', './Films/Jack', 'Mathias Malzieu',
+        './Photos/Jack.jpg'),
+       (9, 'Lucifer', './Films/Lucifer',
+        'Neil Gaiman, Sam Kieth & Mike Dringenberg', './Photos/Lucifer.jpg'),
+       (10, 'Mr Robot', './Films/Mr-robot', 'Sam Esmail',
+        './Photos/Mr-robot.jpg'),
        (11, 'Nerve', './Films/Nerve', 'Jeanne Ryan', './Photos/Nerve.jpg'),
-       (12, 'Paprika', './Films/Paprika', 'Satoshi Kon', './Photos/Paprika.jpg'),
-       (13, 'Parasyte', './Films/Parasyte', 'Hitoshi Iwaaki', './Photos/Parasyte.jpg'),
-       (14, 'Perfect Blue', './Films/Perfect-Blue', 'Satoshi Kon', './Photos/Perfect-Blue.jpg'),
-       (15, 'Persona 5', './Films/Persona-5', ' Shinichi Inotsume', './Photos/Persona-5.jpg'),
-       (16, 'Song of the Sea', './Films/Song-Of-The-sea', 'Tomm Moore', './Photos/Song-Of-The-Sea.jpg'),
-       (17, 'The Conjuring', './Films/The-Conjuring', 'Chad Hayes & Carey W. Hayes', './Photos/The-Conjuring.jpg'),
-       (18, 'The Nightmare Before Christmas', './Films/The-Nightmare-Before-Christmas', 'Tim Burton',
+       (12, 'Paprika', './Films/Paprika', 'Satoshi Kon',
+        './Photos/Paprika.jpg'),
+       (13, 'Parasyte', './Films/Parasyte', 'Hitoshi Iwaaki',
+        './Photos/Parasyte.jpg'),
+       (14, 'Perfect Blue', './Films/Perfect-Blue', 'Satoshi Kon',
+        './Photos/Perfect-Blue.jpg'),
+       (15, 'Persona 5', './Films/Persona-5', ' Shinichi Inotsume',
+        './Photos/Persona-5.jpg'),
+       (16, 'Song of the Sea', './Films/Song-Of-The-sea', 'Tomm Moore',
+        './Photos/Song-Of-The-Sea.jpg'),
+       (17, 'The Conjuring', './Films/The-Conjuring',
+        'Chad Hayes & Carey W. Hayes', './Photos/The-Conjuring.jpg'),
+       (18, 'The Nightmare Before Christmas',
+        './Films/The-Nightmare-Before-Christmas', 'Tim Burton',
         './Photos/The-Nightmare-Before-Christmas.jpg'),
-       (19, 'The Originals', './Films/The-Originals', 'Julie Plec', './Photos/The-Originals.jpg'),
-       (20, 'The Secret of Kells', './Films/The-Secret-Of-Kells', 'Tomm Moore', './Photos/The-Secret-Of-Kells.jpg'),
-       (21, 'Tokyo Ghoul', './Films/Tokyo-Ghoul', 'Sui Ishida', './Photos/Tokyo-Ghoul.jpg'),
-       (22, 'Toradora', './Films/Toradora', 'Yuyuko Takemiya', './Photos/Toradora.jpg'),
-       (23, 'Vikings', './Films/Vikings', 'Michael Hirst', './Photos/Vikings.jpg'),
-       (24, 'Interstellar', './Films/Interstellar', 'Christopher & Jonathon Nolan', './Photos/Interstellar.jpg');
+       (19, 'The Originals', './Films/The-Originals', 'Julie Plec',
+        './Photos/The-Originals.jpg'),
+       (20, 'The Secret of Kells', './Films/The-Secret-Of-Kells', 'Tomm Moore',
+        './Photos/The-Secret-Of-Kells.jpg'),
+       (21, 'Tokyo Ghoul', './Films/Tokyo-Ghoul', 'Sui Ishida',
+        './Photos/Tokyo-Ghoul.jpg'),
+       (22, 'Toradora', './Films/Toradora', 'Yuyuko Takemiya',
+        './Photos/Toradora.jpg'),
+       (23, 'Vikings', './Films/Vikings', 'Michael Hirst',
+        './Photos/Vikings.jpg'),
+       (24, 'Interstellar', './Films/Interstellar',
+        'Christopher & Jonathon Nolan', './Photos/Interstellar.jpg');
 
 -- --------------------------------------------------------
 
@@ -147,7 +170,8 @@ CREATE TABLE `posts`
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`Idpost`, `idsub`, `Autorpost`, `Title`, `Body`, `Photo`, `Date`)
+INSERT INTO `posts` (`Idpost`, `idsub`, `Autorpost`, `Title`, `Body`, `Photo`,
+                     `Date`)
 VALUES (1, 1, 1, 'Title post test',
         'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
         NULL, '0000-00-00'),
@@ -166,7 +190,9 @@ VALUES (1, 1, 1, 'Title post test',
        (6, 2, 1, 'Title 3',
         'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.',
         NULL, '0000-00-00'),
-       (7, 3, 1, 'Title 1', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', NULL,
+       (7, 3, 1, 'Title 1',
+        'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.',
+        NULL,
         '0000-00-00'),
        (8, 3, 1, 'Title 2',
         'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.',
@@ -177,7 +203,9 @@ VALUES (1, 1, 1, 'Title post test',
        (10, 4, 1, 'Title 1',
         'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.',
         NULL, '0000-00-00'),
-       (11, 4, 1, 'Title 2', 'Sed ante. Vivamus tortor. Duis mattis egestas metus.', NULL, '0000-00-00'),
+       (11, 4, 1, 'Title 2',
+        'Sed ante. Vivamus tortor. Duis mattis egestas metus.', NULL,
+        '0000-00-00'),
        (12, 4, 1, 'Title 3',
         'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
         NULL, '0000-00-00');
@@ -230,10 +258,13 @@ CREATE TABLE `users`
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`Iduser`, `Name`, `Pseudo`, `Email`, `Password`, `photoProfile`, `accountType`)
-VALUES (1, 'Test', 'test', 'Test@test.com', '$2y$10$D11hQ3ocZxPLPiWKHheVS.uhr2hkIh.Lzj.28heGPzRoHsAXsjxva',
+INSERT INTO `users` (`Iduser`, `Name`, `Pseudo`, `Email`, `Password`,
+                     `photoProfile`, `accountType`)
+VALUES (1, 'Test', 'test', 'Test@test.com',
+        '$2y$10$D11hQ3ocZxPLPiWKHheVS.uhr2hkIh.Lzj.28heGPzRoHsAXsjxva',
         '../logo.jpeg', 'free'),
-       (2, 'User', 'user', 'user@gmail.com', '$2y$10$jP47e7OZyDSqPgo5pPqAl.LEz4CTZyanXK3kKeMGH7obpMrtdlcqq',
+       (2, 'User', 'user', 'user@gmail.com',
+        '$2y$10$jP47e7OZyDSqPgo5pPqAl.LEz4CTZyanXK3kKeMGH7obpMrtdlcqq',
         '../logo.jpeg', 'free');
 
 --

@@ -10,7 +10,8 @@ function sessioncheck()
     }
     connexion();
     </script>";
-    } else {
+    }
+    else {
         echo
         "</br> <script>
     function compte () {

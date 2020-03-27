@@ -1,12 +1,10 @@
-let searchinput, style;
-
 function bar_de_recherche() {
-    searchinput = document.getElementById('barderechercher');
-    style = window.getComputedStyle(searchinput);
+    let searchinput = document.getElementById('barderechercher');
+    let style = window.getComputedStyle(searchinput);
     if (style.width === "0px") {
         searchinput.style.width = "240px";
         searchinput.style.paddingLeft = "20px";
-        searchinput.classList.add('searchFilms-open');
+        searchinput.focus();
     } else {
         searchinput.style.width = "0";
         searchinput.style.paddingLeft = "0px";
@@ -43,18 +41,18 @@ function sidebar() {
     let sidebar = document.getElementById('sidebar');
     let sidebarcss = window.getComputedStyle(sidebar);
     let sidebarChildren = sidebar.children;
-    let content = document.getElementsByClassName('body');
+
     if (sidebarcss.width === "250px") {
         for (let i = 0; i < sidebarChildren.length; i++) {
             fadeOut(sidebarChildren[i]);
         }
         sidebar.style.width = '0';
-        content[0].style.marginLeft = '50px';
+
     } else {
         for (let i = 0; i < sidebarChildren.length; i++) {
             fadeIn(sidebarChildren[i]);
         }
         sidebar.style.width = '250px';
-        content[0].style.marginLeft = '300px';
+
     }
 }

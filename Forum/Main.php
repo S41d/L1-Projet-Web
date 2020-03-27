@@ -7,6 +7,7 @@ include '../sessioncheck.php';
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style_general/header.css">
+    <link rel="stylesheet" href="../style_general/sidebar.css">
     <link rel="stylesheet" href="styles/Style-main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
@@ -16,6 +17,9 @@ include '../sessioncheck.php';
 <body>
 <header>
     <div class="logo">
+        <a id="sandwitch-icon" onclick="sidebar()">
+            <i class="material-icons">menu</i>
+        </a>
         <a href="../Accueil/Index.php">
             logo
         </a>
@@ -28,24 +32,33 @@ include '../sessioncheck.php';
                 <a id="rechercher" onclick="bar_de_recherche()">
                     <i class="material-icons">search</i>
                 </a>
-                <input type="text" id="barderechercher" size="30" placeholder="Rechercher">
+                <input type="text" id="barderechercher" size="30"
+                       placeholder="Rechercher">
             </div>
         </nav>
     </div>
 </header>
 
-<div class="Subs">
-    <?php
-    $database = new mysqli('localhost', 'root', '', 'projet');
-    $subquery = 'Select * From sub';
-    $result = $database->query($subquery) or die('can\'t connect to server to get subs');
-    while ($subname = $result->fetch_assoc()) {
-        echo '<a href="Sub.php?idsub=' . $subname['idsub'] . '">' . $subname['namesub'] . '</a>';
-    }
-    sessioncheck();
-    ?>
+<div class="sidebar" id="sidebar">
+    <a href="../Accueil/Index.php">Accueil</a>
+    <a href="../Forum/Main.php">Forum</a>
+    <a href="../Compte/profile.php">Compte</a>
+    <a href="../Con-Ins/connexion.php">Connexion</a>
 </div>
 
+<div class="body">
+    <div class="Subs">
+        <?php
+        $database = new mysqli('localhost', 'root', '', 'projet');
+        $subquery = 'Select * From sub';
+        $result = $database -> query($subquery) or die('can\'t connect to server to get subs');
+        while ($subname = $result -> fetch_assoc()) {
+            echo '<a href="Sub.php?idsub=' . $subname['idsub'] . '">' . $subname['namesub'] . '</a>';
+        }
+        sessioncheck();
+        ?>
+    </div>
+</div>
 <script src="../style_general/script.js"></script>
 </body>
 

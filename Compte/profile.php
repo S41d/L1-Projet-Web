@@ -13,14 +13,19 @@ $Type = $_SESSION['Type'] ?? 'null';
     <meta charset="UTF-8">
     <title>Mon Compte</title>
     <link rel="stylesheet" href="../style_general/header.css">
+    <link rel="stylesheet" href="../style_general/sidebar.css">
     <link rel="stylesheet" href="styleCompte.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
 
 <header>
     <div class="logo">
+        <a id="sandwitch-icon" onclick="sidebar()">
+            <i class="material-icons">menu</i>
+        </a>
         <a href="../Accueil/Index.php">
             logo
         </a>
@@ -32,15 +37,24 @@ $Type = $_SESSION['Type'] ?? 'null';
                 <a id="rechercher" onclick="bar_de_recherche()">
                     <i class="material-icons">search</i>
                 </a>
-                <input type="text" id="barderechercher" size="30" placeholder="Rechercher">
+                <input type="text" id="barderechercher" size="30"
+                       placeholder="Rechercher">
             </div>
         </nav>
     </div>
 </header>
 
+<div class="sidebar" id="sidebar">
+    <a href="../Accueil/Index.php">Accueil</a>
+    <a href="../Forum/Main.php">Forum</a>
+    <a href="../Compte/profile.php">Compte</a>
+    <a href="../Con-Ins/connexion.php">Connexion</a>
+</div>
+
 <div class="body">
-    <img src="../logo.jpeg" alt="">
-    <label style="margin-bottom: 20px; color: white"><h1><?php echo $Name ?></h1></label>
+    <p>logo</p>
+    <label style="margin-bottom: 20px; color: white; font-size: 2em">
+        <?php echo $Name ?></label>
 
     <div class="labels">
         <label class="label-left">Nom</label>

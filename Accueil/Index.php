@@ -35,17 +35,18 @@ session_start();
                 <a id="rechercher" onclick="bar_de_recherche()">
                     <i class="material-icons">search</i>
                 </a>
-                <input type="text" id="barderechercher" size="30" placeholder="Rechercher" onkeyup="searchFilms()">
+                <input type="text" id="barderechercher" size="30"
+                       placeholder="Rechercher" onkeyup="searchFilm()">
             </div>
         </nav>
     </div>
 </header>
 
 <div class="sidebar" id="sidebar">
-    <a href="#">Accueil</a>
-    <a href="#">Forum</a>
-    <a href="#">Compte</a>
-    <a href="#">Connexion</a>
+    <a href="../Accueil/Index.php">Accueil</a>
+    <a href="../Forum/Main.php">Forum</a>
+    <a href="../Compte/profile.php">Compte</a>
+    <a href="../Con-Ins/connexion.php">Connexion</a>
 </div>
 
 <div class="body" id="body">
@@ -54,7 +55,7 @@ session_start();
     ?>
 </div>
 <script src="../style_general/script.js"></script>
-<script src="searchFilms.js"></script>
+<script src="indexScript.js"></script>
 <?php
 sessioncheck();
 ?>

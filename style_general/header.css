@@ -95,17 +95,12 @@ header nav {
     background: none;
 }
 
-
-.search-open {
-    transform: scale(1);
-    transition: 0.25s;
-}
-
 #barderechercher {
-    line-height: 3.25em;
-    border: none;
-    outline: none;
-    background: none;
-    border-radius: 100px;
-    width: 0;
+    line-height   : 3.25em;
+    border        : none;
+    outline       : none;
+    background    : none;
+    border-radius : 100px;
+    width         : 0;
+    transition    : 0.25s;
 }
