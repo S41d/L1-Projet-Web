@@ -1,24 +1,24 @@
 .body a {
-    transition: 0.25s;
-    height: 180px;
-    width: 320px;
-    background-size: cover;
-    margin: 30px 20px;
-    box-sizing: content-box;
-    flex: 0.1 1 300px;
+    transition      : 0.25s;
+    height          : 180px;
+    width           : 320px;
+    background-size : cover;
+    margin          : 30px 20px;
+    box-sizing      : content-box;
+    flex            : 0.1 1 300px;
 }
 
 .body a:hover {
-    transform: scale(1.1);
-    transition: 0.25s;
+    transform  : scale(1.1);
+    transition : 0.25s;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #1c1c1c;
-    overflow-x: hidden;
+    display          : flex;
+    flex-direction   : column;
+    justify-content  : center;
+    background-color : #1c1c1c;
+    overflow-x       : hidden;
 }
 
 .body {

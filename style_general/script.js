@@ -41,18 +41,15 @@ function sidebar() {
     let sidebar = document.getElementById('sidebar');
     let sidebarcss = window.getComputedStyle(sidebar);
     let sidebarChildren = sidebar.children;
-
     if (sidebarcss.width === "250px") {
         for (let i = 0; i < sidebarChildren.length; i++) {
             fadeOut(sidebarChildren[i]);
         }
         sidebar.style.width = '0';
-
     } else {
         for (let i = 0; i < sidebarChildren.length; i++) {
             fadeIn(sidebarChildren[i]);
         }
         sidebar.style.width = '250px';
-
     }
 }

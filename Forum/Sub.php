@@ -2,10 +2,10 @@
 session_start();
 include '../sessioncheck.php';
 
-$database = new mysqli('localhost', 'root', '', 'projet');
+$database = new mysqli( 'localhost', 'root', '', 'projet' );
 $idsub = $_GET['idsub'];
 $querysub = "Select * from sub where idsub=$idsub";
-$resultsub = $database -> query($querysub);
+$resultsub = $database -> query( $querysub );
 $sub = $resultsub -> fetch_assoc();
 ?>
 
@@ -56,11 +56,10 @@ $sub = $resultsub -> fetch_assoc();
     <div class="Posts">
         <?php
         $query = "Select * from posts where idsub=$idsub";
-        $result = $database -> query($query);
+        $result = $database -> query( $query );
         while ($posts = $result -> fetch_assoc()) {
             echo '<a href="Posts.php?id=' . $posts['Idpost'] . '">' . $posts['Title'] . '</a>' . '</br>';
         }
-
         sessioncheck();
         ?>
     </div>

@@ -3,10 +3,12 @@ session_start();
 include '../sessioncheck.php';
 
 $postid = $_GET['id'];
-$database = new mysqli('localhost', 'root', '', 'projet');
+$database = new mysqli( 'localhost', 'root', '', 'projet' );
 $postquery = "Select * from posts where Idpost = $postid ";
-$result = $database -> query($postquery) or die('can\'t connect to server to get posts');
-$post = $result -> fetch_assoc();
+$commentsQuery = "Select comments.* from comments, commentpost where commentpost.idcomment = comments.idcomment and commentpost.Idpost = $postid";
+$resultpost = $database -> query( $postquery ) or die( 'can\'t connect to server to get posts' );
+$resultcomments = $database -> query( $commentsQuery ) or die( 'can\'t connect to server to get comments' );
+$post = $resultpost -> fetch_assoc();
 ?>
 
 <!doctype html>
@@ -59,8 +61,16 @@ $post = $result -> fetch_assoc();
 
 <div class="body">
     <?php
-    echo '<div class="Title">' . $post['Title'] . '</div>';
+    echo '<div class="Title">' . $post['Title'] . '<date>' . $post['Date'] . '</date>' . '</div>';
     echo '<div class="post">' . $post['Body'] . '</div>';
+    echo '<div class="comments">';
+    while ($comment = $resultcomments -> fetch_assoc()) {
+        echo '<div class="commentHolder">';
+        echo '<div class="commentHead">' . $comment['Author'] . ' <date>' . $comment['dateComment'] . '</date> ' . '</div>';
+        echo '<div class="commentBody">' . $comment['commentBody'] . '</div>';
+        echo '</div>'; // CommentHolder
+    }
+    echo '</div>'; // Comments
     sessioncheck();
     ?>
 </div>
