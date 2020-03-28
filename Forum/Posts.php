@@ -62,15 +62,15 @@ $post = $resultpost -> fetch_assoc();
 <div class="body">
     <?php
     echo '<div class="Title">' . $post['Title'] . '<date>' . $post['Date'] . '</date>' . '</div>';
-    echo '<div class="post">' . $post['Body'] . '</div>';
+    echo '<div class="post">' . $post['Body'] . '<img src="' . $post['Photo'] . '" alt="">' . '</div>';
     echo '<div class="comments">';
     while ($comment = $resultcomments -> fetch_assoc()) {
         echo '<div class="commentHolder">';
         echo '<div class="commentHead">' . $comment['Author'] . ' <date>' . $comment['dateComment'] . '</date> ' . '</div>';
         echo '<div class="commentBody">' . $comment['commentBody'] . '</div>';
-        echo '</div>'; // CommentHolder
+        echo '</div>'; // commentHolder
     }
-    echo '</div>'; // Comments
+    echo '</div>'; // comments
     sessioncheck();
     ?>
 </div>
