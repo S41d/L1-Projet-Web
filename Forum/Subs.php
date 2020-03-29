@@ -16,14 +16,14 @@ $sub = $resultsub -> fetch_assoc();
     <title><?php echo $sub['namesub']; ?></title>
     <link rel="stylesheet" href="../style_general/header.css">
     <link rel="stylesheet" href="../style_general/sidebar.css">
-    <link rel="stylesheet" href="styles/Style-Subs.css">
+    <link rel="stylesheet" href="styles/Subs.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
 <body>
 
 <header>
     <div class="logo">
-        <a id="sandwitch-icon" onmouseover="sidebar()">
+        <a id="sandwitch-icon" onclick="sidebar()">
             <i class="material-icons">menu</i>
         </a>
         <a href="../Accueil/Index.php">
@@ -60,11 +60,13 @@ $sub = $resultsub -> fetch_assoc();
         while ($posts = $result -> fetch_assoc()) {
             echo '<a href="Posts.php?id=' . $posts['Idpost'] . '">' . $posts['Title'] . '</a>' . '</br>';
         }
+        echo '<a href="Subs.createPost.php?Id=' . $idsub . '" id="newBtn"> <i style="font-size: 2em" class="material-icons">add_circle_outline</i></a>';
+
         sessioncheck();
+        sessioncheckForum();
         ?>
     </div>
 </div>
-
 <script src="../style_general/script.js"></script>
 </body>
 </html>

@@ -32,7 +32,12 @@ body {
     align-items      : center;
 }
 
-img {
+.post p {
+    text-align : left;
+    width      : inherit;
+}
+
+.post img {
     width      : inherit;
     margin-top : 30px;
 }

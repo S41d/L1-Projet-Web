@@ -5,7 +5,8 @@ body {
 }
 
 .Posts a {
-    display          : block;
+    display          : inline-flex;
+    vertical-align   : middle;
     text-decoration  : none;
     color            : white;
     border           : gray 1px solid;
@@ -16,10 +17,16 @@ body {
     transition       : 0.2s;
     background-color : #3d3d3d;
     flex             : 1 1 250px;
+    justify-content  : center;
 }
 
 .Posts a:hover {
     background-color : gray;
+}
+
+.Posts a i {
+    display       : inline-flex;
+    margin-bottom : 20px;
 }
 
 .Posts {

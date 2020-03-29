@@ -8,7 +8,7 @@ include '../sessioncheck.php';
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style_general/header.css">
     <link rel="stylesheet" href="../style_general/sidebar.css">
-    <link rel="stylesheet" href="styles/Style-main.css">
+    <link rel="stylesheet" href="styles/Main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <title>Forum</title>
@@ -49,13 +49,15 @@ include '../sessioncheck.php';
 <div class="body">
     <div class="Subs">
         <?php
-        $database = new mysqli('localhost', 'root', '', 'projet');
+        $database = new mysqli( 'localhost', 'root', '', 'projet' );
         $subquery = 'Select * From sub';
-        $result = $database -> query($subquery) or die('can\'t connect to server to get subs');
+        $result = $database -> query( $subquery ) or die( 'can\'t connect to server to get subs' );
         while ($subname = $result -> fetch_assoc()) {
-            echo '<a href="Sub.php?idsub=' . $subname['idsub'] . '">' . $subname['namesub'] . '</a>';
+            echo '<a href="Subs.php?idsub=' . $subname['idsub'] . '">' . $subname['namesub'] . '</a>';
         }
+        echo '<a href="Main.createSub.php" id="newBtn"><i style="font-size: 2em" class="material-icons">add_circle_outline</i></a>';
         sessioncheck();
+        sessioncheckForum();
         ?>
     </div>
 </div>

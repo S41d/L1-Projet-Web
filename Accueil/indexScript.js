@@ -6,7 +6,7 @@ function searchFilm() {
     for (let i = 0; i < children.length; i++) {
         let a = children[i];
         let txtValue = a.id;
-        txtValue = txtValue.replace(/-/g, ' ');
+        txtValue = txtValue.replace('-', ' ');
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
             children[i].style.display = "";
         } else {

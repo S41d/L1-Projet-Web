@@ -9,8 +9,9 @@
 }
 
 .body a:hover {
-    transform  : scale(1.1);
+    filter     : blur(1px);
     transition : 0.25s;
+    z-index    : 0;
 }
 
 body {

@@ -1,7 +1,6 @@
 <?php
-function sessioncheck()
-{
-    if (isset($_SESSION['Iduser'], $_SESSION['Pseudo'])) {
+function sessioncheck() {
+    if (isset( $_SESSION['Iduser'], $_SESSION['Pseudo'] )) {
         echo
         "</br> <script>
         let con = document.getElementById('connexion');
@@ -13,6 +12,15 @@ function sessioncheck()
         "</br> <script>
         let compte = document.getElementById('compte');
         compte.style.display = \"none\"; <!-- Compte -->
+    </script>";
+    }
+}
+
+function sessioncheckForum() {
+    if (!isset( $_SESSION['Iduser'] )) {
+        echo "<br> <script>
+        let newBtn = document.getElementById('newBtn');
+        newBtn.style.display=\"none\";
     </script>";
     }
 }
