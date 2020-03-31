@@ -13,6 +13,7 @@ function bar_de_recherche() {
 
 function fadeOut(element) {
     let op = 1;  // initial opacity
+    element.style.display = "none";
     const timer = setInterval(function () {
         if (op <= 0.1) {
             clearInterval(timer);

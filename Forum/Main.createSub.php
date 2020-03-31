@@ -10,11 +10,19 @@ else {
 }
 
 if (isset( $_POST['name'], $_POST['description'] )) {
-    $subName = $_POST['name'];
-    $subDescription = $_POST['description'];
-    $database = new mysqli( 'localhost', 'root', '', 'projet' );
-    $newSubQuery = "Insert into sub(namesub, description, `photo-sub`, modid) value ('$subName', '$subDescription', null, $modId)";
-    $resultSubQuery = $database -> query( $newSubQuery ) or die( 'query failed : ' . mysqli_error( $database ) );
+    $photoDir = __DIR__ . '/photosSubs/';
+    $photo = $photoDir . basename( $_FILES['uploadPhotoInput']['name'] );
+    echo $photo;
+    if (move_uploaded_file( $_FILES['uploadPhotoInput']['tmp_name'], $photo )) {
+        echo 'succesful';
+    }
+
+
+//    $subName = $_POST['name'];
+//    $subDescription = $_POST['description'];
+//    $database = new mysqli( 'localhost', 'root', '', 'projet' );
+//    $newSubQuery = "Insert into sub(namesub, description, `photo-sub`, modid) value ('$subName', '$subDescription', null, $modId)";
+//    $resultSubQuery = $database -> query( $newSubQuery ) or die( 'query failed : ' . mysqli_error( $database ) );
 }
 ?>
 
@@ -66,12 +74,16 @@ if (isset( $_POST['name'], $_POST['description'] )) {
 </div>
 
 <div class="body">
-    <form action="Main.createSub.php" method="post">
-        <label> Nom
+    <form action="Main.createSub.php" method="post" enctype="multipart/form-data">
+        <label for="name"> Nom
             <input type="text" name="name">
         </label>
-        <label> Description
+        <label for="description"> Description
             <textarea name="description" cols="30" rows="10"></textarea>
+        </label>
+        <label for="uploadPhotoInput" id="uploadPhoto">
+            <input type="file" name="uploadPhotoInput" id="uploadPhotoInput">
+            Browse photo
         </label>
         <button type="submit">Créer sub</button>
     </form>

@@ -53,6 +53,17 @@ $sub = $resultsub -> fetch_assoc();
 </div>
 
 <div class="body">
+    <div class="description">
+        <div class="img"><img src="../Accueil/Photos/Coraline.jpg" alt=""></div>
+        <div class="text">
+            <?php
+            $subName = $sub['namesub'];
+            $subDescription = $sub['description'];
+            echo "<title>$subName</title>";
+            echo "<description>$subDescription</description>";
+            ?>
+        </div>
+    </div>
     <div class="Posts">
         <?php
         $query = "Select * from posts where idsub=$idsub";
