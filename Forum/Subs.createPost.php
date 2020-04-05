@@ -6,7 +6,6 @@ if (isset( $_SESSION['Iduser'] )) {
     $modId = $_SESSION['Iduser'];
 }
 else {
-    echo 'blyat';
     echo '<script></script>';
 }
 
@@ -25,11 +24,8 @@ if (isset( $_POST['title'], $_POST['text'] )) {
 
     $date = date( 'd-m-Y' );
 
-    $newPostQuery = "Insert into posts(idsub, Autorpost, Title, Body, Photo, Date) value ($idSub, $authorId , '$postTitle', '$postText', null, '$date' )";
+    $newPostQuery = "Insert into posts(idsub, Autorpost, Title, Body, Photo, Date) value ($idSub, () , '$postTitle', '$postText', null, '$date' )";
     $resultPostQuery = $database -> query( $newPostQuery ) or die( 'query failed : ' . mysqli_error( $database ) );
-    if ($resultauthorQuery) {
-        echo mysqli_error( $database );
-    }
 }
 else {
     echo 'not everything is set';
@@ -44,7 +40,7 @@ else {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../style_general/header.css">
     <link rel="stylesheet" href="../style_general/sidebar.css">
-    <link rel="stylesheet" href="styles/Subs.creatPost.css">
+    <link rel="stylesheet" href="styles/createNew.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <title>Nouveau Poste</title>

@@ -8,7 +8,7 @@ include '../sessioncheck.php';
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style_general/header.css">
     <link rel="stylesheet" href="../style_general/sidebar.css">
-    <link rel="stylesheet" href="styles/Main.css">
+    <link rel="stylesheet" href="styles/Tiles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <title>Forum</title>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../sessioncheck.php';
+include './timeDiff.php';
 
 $postid = $_GET['id'];
 $database = new mysqli( 'localhost', 'root', '', 'projet' );
@@ -18,12 +19,12 @@ $post = $resultpost -> fetch_assoc();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $post['Title'] ?></title>
     <link rel="stylesheet" href="../style_general/header.css">
     <link rel="stylesheet" href="../style_general/sidebar.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link rel="stylesheet" href="styles/Posts.css">
+    <title><?php echo $post['Title'] ?></title>
 </head>
 <body>
 
@@ -63,10 +64,13 @@ $post = $resultpost -> fetch_assoc();
     <?php
     echo '<div class="Title">' . $post['Title'] . '<date>' . $post['Date'] . '</date>' . '</div>';
     echo '<div class="post"> <p>' . $post['Body'] . '</p> <img src="' . $post['Photo'] . '" alt="">' . '</div>';
+
     echo '<div class="comments">';
     while ($comment = $resultcomments -> fetch_assoc()) {
         echo '<div class="commentHolder">';
-        echo '<div class="commentHead">' . $comment['Author'] . ' <date>' . $comment['dateComment'] . '</date> ' . '</div>';
+        $dateComment = $comment['dateComment'];
+        $dateComment = str_replace( array(' ', ':', '-'), '', $dateComment );
+        echo '<div class="commentHead">' . $comment['author'] . ' <date>' . timeDiff( $dateComment ) . '</date> ' . '</div>';
         echo '<div class="commentBody">' . $comment['commentBody'] . '</div>';
         echo '</div>'; // commentHolder
     }

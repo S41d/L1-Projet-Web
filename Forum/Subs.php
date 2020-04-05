@@ -7,6 +7,8 @@ $idsub = $_GET['idsub'];
 $querysub = "Select * from sub where idsub=$idsub";
 $resultsub = $database -> query( $querysub );
 $sub = $resultsub -> fetch_assoc();
+
+$photoSub = $sub['photo-sub'];
 ?>
 
 <!doctype html>
@@ -16,7 +18,7 @@ $sub = $resultsub -> fetch_assoc();
     <title><?php echo $sub['namesub']; ?></title>
     <link rel="stylesheet" href="../style_general/header.css">
     <link rel="stylesheet" href="../style_general/sidebar.css">
-    <link rel="stylesheet" href="styles/Subs.css">
+    <link rel="stylesheet" href="styles/Tiles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
 <body>
@@ -54,7 +56,7 @@ $sub = $resultsub -> fetch_assoc();
 
 <div class="body">
     <div class="description">
-        <div class="img"><img src="../Accueil/Photos/Coraline.jpg" alt=""></div>
+        <div class="img"><img src="<?php echo $photoSub; ?>" alt=""></div>
         <div class="text">
             <?php
             $subName = $sub['namesub'];
