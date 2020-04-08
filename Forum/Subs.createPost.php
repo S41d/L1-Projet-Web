@@ -1,9 +1,9 @@
 <?php
 include '../sessioncheck.php';
 session_start();
-$modId = '';
+$authorId = '';
 if (isset( $_SESSION['Iduser'] )) {
-    $modId = $_SESSION['Iduser'];
+    $authorId = $_SESSION['Iduser'];
 }
 else {
     echo '<script></script>';
@@ -11,24 +11,37 @@ else {
 
 $idSub = $_GET['Id'] ?? $_POST['idSub'];
 
-if (isset( $_POST['title'], $_POST['text'] )) {
+if (isset( $_POST['title'], $_POST['text'], $_POST['submit'] )) {
+    $directory = __DIR__ . '/photosPosts/';
+    $photoDirectory = $directory . basename( $_FILES['uploadPhotoInput']['name'] );
+    $photo = '';
+    if ($_FILES['uploadPhotoInput']['name'] === '') {
+        $photo = null;
+        echo 'null';
+    }
+    else {
+        $photo = './photosPosts/' . $_FILES['uploadPhotoInput']['name'];
+        echo $photo;
+    }
+
     $postTitle = $_POST['title'];
     $postText = $_POST['text'];
 
     $database = new mysqli( 'localhost', 'root', '', 'projet' );
 
-    $getAuthorQuery = "Select * from users u where u.Iduser = $modId";
-    $resultauthorQuery = $database -> query( $getAuthorQuery );
-    $author = $resultauthorQuery -> fetch_assoc();
-    $authorId = $author['Iduser'];
-
-    $date = date( 'd-m-Y' );
-
-    $newPostQuery = "Insert into posts(idsub, Autorpost, Title, Body, Photo, Date) value ($idSub, () , '$postTitle', '$postText', null, '$date' )";
+    $newPostQuery = "Insert into posts(idsub, Autorpost, Title, Body, Photo) value ($idSub, $authorId , '$postTitle', '$postText', '$photo')";
     $resultPostQuery = $database -> query( $newPostQuery ) or die( 'query failed : ' . mysqli_error( $database ) );
-}
-else {
-    echo 'not everything is set';
+
+    if ($resultPostQuery) {
+        move_uploaded_file( $_FILES['uploadPhotoInput']['tmp_name'],
+            $photoDirectory ); //copie le fichier dans le dossier local
+        $idPost = $database -> insert_id;
+        $goBack = 'Location: ./Posts.php?id=' . $idPost;
+        header( $goBack ); //Envoi vers le post créé
+    }
+    else {
+        echo mysqli_error( $database );
+    }
 }
 ?>
 <!doctype html>
@@ -38,9 +51,9 @@ else {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../style_general/header.css">
-    <link rel="stylesheet" href="../style_general/sidebar.css">
-    <link rel="stylesheet" href="styles/createNew.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/styleForum/createNew.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <title>Nouveau Poste</title>
@@ -52,7 +65,7 @@ else {
         <a id="sandwitch-icon" onclick="sidebar()">
             <i class="material-icons">menu</i>
         </a>
-        <a href="../Accueil/Index.php">
+        <a href="index.php">
             logo
         </a>
     </div>
@@ -72,28 +85,33 @@ else {
 </header>
 
 <div class="sidebar" id="sidebar">
-    <a href="../Accueil/Index.php">Accueil</a>
-    <a href="Main.php">Forum</a>
+    <a href="index.php">Accueil</a>
+    <a href="../Forum/">Forum</a>
     <a href="../Compte/profile.php">Compte</a>
     <a href="../Con-Ins/connexion.php">Connexion</a>
 </div>
 
 <div class="body">
-    <form action="Subs.createPost.php" method="post">
+    <form action="Subs.createPost.php" method="post" enctype="multipart/form-data" autocomplete="off">
         <label> Titre
-            <input type="text" name="title">
+            <input type="text" name="title" autofocus>
         </label>
         <label> Texte
             <textarea name="text" cols="30" rows="10"></textarea>
         </label>
+        <label for="uploadPhotoInput" id="uploadPhotoSub">
+            <input type="file" name="uploadPhotoInput" id="uploadPhotoInput">
+            Browse photo
+        </label>
         <input style="display: none;" type="text" name="idSub" value="<?php echo $idSub ?>">
-        <button type="submit">Poster</button>
+        <button type="submit" name="submit">Poster</button>
     </form>
 </div>
 
 <?php sessioncheck();
 sessioncheckForum(); ?>
 
-<script src="../style_general/script.js"></script>
+<script src="../styles/style.js"></script>
+<script src="../styles/styleForum/photoBrowseBtn.js"></script>
 </body>
 </html>

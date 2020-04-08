@@ -8,11 +8,11 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Accueil</title>
-    <link rel="stylesheet" href="../style_general/header.css">
+    <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <link rel="stylesheet" href="../style_general/sidebar.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
 </head>
 <body>
 
@@ -21,13 +21,13 @@ session_start();
         <a id="sandwitch-icon" onclick="sidebar()">
             <i class="material-icons">menu</i>
         </a>
-        <a href="../Accueil/Index.php">
+        <a href="index.php">
             logo
         </a>
     </div>
     <div class="nav">
         <nav id="nav">
-            <a href="../Forum/Main.php">Forum</a>
+            <a href="../Forum/">Forum</a>
             <a href="../Con-Ins/connexion.php" id="connexion">Connexion</a>
             <a href="../Compte/profile.php" id="compte">Compte</a>
             <div class="search">
@@ -42,8 +42,8 @@ session_start();
 </header>
 
 <div class="sidebar" id="sidebar">
-    <a href="../Accueil/Index.php">Accueil</a>
-    <a href="../Forum/Main.php">Forum</a>
+    <a href="index.php">Accueil</a>
+    <a href="../Forum/">Forum</a>
     <a href="../Compte/profile.php">Compte</a>
     <a href="../Con-Ins/connexion.php">Connexion</a>
 </div>
@@ -61,7 +61,7 @@ session_start();
     }
     ?>
 </div>
-<script src="../style_general/script.js"></script>
+<script src="../styles/style.js"></script>
 <script src="indexScript.js"></script>
 <?php
 sessioncheck();

@@ -1,0 +1,274 @@
+body {
+    background-color : #1c1c1c;
+    margin           : 0;
+    padding          : 0;
+    color            : white;
+    display          : flex;
+    justify-content  : center;
+}
+
+@keyframes fadeIn {
+    0% {
+        display        : none;
+        opacity        : 0;
+        flex-direction : column;
+    }
+    100% {
+        opacity : 1;
+        display : flex;
+    }
+}
+
+@keyframes tiles {
+    0% {
+        transform : scale(0.5, 1);
+        opacity   : 0;
+    }
+    100% {
+        transform : scale(1, 1);
+        opacity   : 1;
+    }
+}
+
+.body {
+    margin-top : 4em;
+    flex       : 0 1 900px;
+    transition : 0.25s;
+}
+
+/*Search*/
+
+.resultsDiv {
+    display             : flex;
+    flex-direction      : column;
+    align-items         : center;
+    margin              : 5em 5% 0 5%;
+    flex                : 0 1 800px;
+    animation           : fadeIn 1s;
+    animation-fill-mode : forwards;
+}
+
+
+.resultsDiv a {
+    display             : flex;
+    padding-top         : 20px;
+    flex-direction      : column;
+    justify-content     : center;
+    text-decoration     : none;
+    width               : 100%;
+    flex                : 1 1 50px;
+    background-color    : #575757;
+    margin              : 20px 0;
+    color               : white;
+    padding-left        : 20px;
+    animation           : tiles 0.5s;
+    opacity             : 0;
+    animation-fill-mode : forwards;
+    transition          : 0.2s;
+}
+
+.resultsDiv a:hover {
+    background-color : #787878;
+}
+
+/*Posts*/
+
+.Title {
+    width            : inherit;
+    background-color : #575757;
+    font-size        : 2em;
+    padding          : 20px 10px;
+    margin-top       : 50px;
+}
+
+date {
+    font-size   : 0.7em;
+    margin-left : 30px;
+}
+
+.post {
+    width            : inherit;
+    display          : block;
+    background-color : #383838;
+    padding          : 30px 10px 50px 10px;
+    align-items      : center;
+}
+
+.post p {
+    text-align : left;
+    width      : inherit;
+    margin     : 0 10px;
+}
+
+.post img {
+    width      : 100%;
+    margin-top : 30px;
+}
+
+.comments {
+    width            : inherit;
+    padding          : 0 10px 30px 10px;
+    display          : flex;
+    flex-direction   : column;
+    background-color : #383838;
+    margin           : 50px 0 100px 0;
+}
+
+.commentHolder {
+    padding       : 30px 10px;
+    flex          : 1;
+    border-bottom : solid 1px gray;
+}
+
+.commentHead {
+    border           : 1px solid gray;
+    padding          : 10px;
+    margin           : 10px 0;
+    background-color : #575757;
+}
+
+.newComment {
+    margin-top : 20px;
+    padding    : 0 10px;
+}
+
+.newComment form {
+    display        : flex;
+    flex-direction : column;
+}
+
+.newComment form textarea {
+    background-color : #383838;
+    resize           : none;
+    height           : 100px;
+    padding          : 10px 4px 10px 4px;
+}
+
+.newComment form textarea:focus {
+    border  : white 1px solid;
+    outline : none;
+    color   : white;
+}
+
+.newComment form button {
+    background-color : #575757;
+    outline          : none;
+    border           : none;
+    height           : 20px;
+    color            : white;
+}
+
+.newComment form button:hover {
+    text-decoration : underline;
+    cursor          : pointer;
+}
+
+/*Main et Subs*/
+
+.description {
+    margin        : 2em 0 0 0;
+    color         : white;
+    display       : flex;
+    border-top    : #3d3d3d solid 1px;
+    border-bottom : #3d3d3d solid 1px;
+    padding       : 10px 0;
+    left          : 0;
+    right         : 0;
+}
+
+.description .text {
+    display     : block;
+    margin-left : 30px;
+}
+
+.description .text title {
+    display   : block;
+    font-size : 2em;
+}
+
+.description .img {
+    width         : 100px;
+    height        : 100px;
+    border-radius : 100px;
+    margin-top    : -1.5em;
+    border        : gray solid 3px;
+}
+
+.description .img img {
+    object-fit    : cover;
+    height        : 100px;
+    max-width     : 100px;
+    max-height    : 100px;
+    border-radius : 6em;
+    position      : absolute;
+}
+
+.Posts {
+    display         : flex;
+    flex-wrap       : wrap;
+    flex-direction  : column;
+    justify-content : space-around;
+    text-align      : center;
+    flex            : 1 1 auto;
+    margin          : 0 100px;
+}
+
+.Posts a {
+    flex-direction   : column;
+    flex             : 1 1 auto;
+    margin           : 30px;
+    transition       : 0.2s;
+    background-color : #3d3d3d;
+    display          : flex;
+    text-decoration  : none;
+    color            : white;
+    justify-content  : center;
+}
+
+.Posts a .Title {
+    font-size  : 1em;
+    margin     : 0;
+    text-align : left;
+}
+
+
+.Subs {
+    display        : flex;
+    flex-direction : column;
+    text-align     : center;
+    flex           : 1 1 auto;
+    margin         : 0 100px;
+}
+
+.Subs a {
+    align-items : center;
+}
+
+.Subs a {
+    display          : flex;
+    text-decoration  : none;
+    color            : white;
+    border           : gray 1px solid;
+    font-size        : 2em;
+    height           : 50px;
+    margin           : 30px;
+    padding          : 50px;
+    transition       : 0.2s;
+    background-color : #3d3d3d;
+    flex             : 0.1 1 150px;
+    justify-content  : center;
+}
+
+.Subs a:hover, .Posts a:hover {
+    background-color : #575757;
+}
+
+.Subs .newBtn, .Posts .newBtn {
+    flex            : 0 0 30px;
+    font-size       : 1em;
+    display         : flex;
+    justify-content : left;
+    align-items     : center;
+    padding         : 10px;
+    margin-bottom   : 0;
+}

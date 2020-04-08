@@ -21,6 +21,15 @@ function sessioncheckForum() {
         echo "<br> <script>
         let newBtn = document.getElementById('newBtn');
         newBtn.style.display=\"none\";
-    </script>";
+        </script>";
+    }
+}
+
+function sessionCheckPost() {
+    if (!isset( $_SESSION['Iduser'] )) {
+        echo "<br> <script >
+        let newCommentInput = document.getElementById('newComment')
+        newCommentInput.style.display=\"none\";
+        </script>";
     }
 }

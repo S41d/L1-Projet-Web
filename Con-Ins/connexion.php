@@ -17,7 +17,7 @@ if (isset( $_POST['connecter'] )) {
             $_SESSION['Pseudo'] = $row['Pseudo'] ?? 'null';
             $_SESSION['Email'] = $row['Email'] ?? 'null';
             $_SESSION['Type'] = $row['accountType'] ?? 'null';
-            header( 'Location: ../Accueil/Index.php' );
+            header( 'Location: ../Accueil/index.php' );
         }
         else {
             $erreur = 'Le pseudo ou le mot de passe est incorrect !';

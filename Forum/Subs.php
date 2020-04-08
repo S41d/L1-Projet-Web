@@ -16,9 +16,9 @@ $photoSub = $sub['photo-sub'];
 <head>
     <meta charset="UTF-8">
     <title><?php echo $sub['namesub']; ?></title>
-    <link rel="stylesheet" href="../style_general/header.css">
-    <link rel="stylesheet" href="../style_general/sidebar.css">
-    <link rel="stylesheet" href="styles/Tiles.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/styleForum/forumStyle.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
 <body>
@@ -28,7 +28,7 @@ $photoSub = $sub['photo-sub'];
         <a id="sandwitch-icon" onclick="sidebar()">
             <i class="material-icons">menu</i>
         </a>
-        <a href="../Accueil/Index.php">
+        <a href="index.php">
             logo
         </a>
     </div>
@@ -41,20 +41,20 @@ $photoSub = $sub['photo-sub'];
                     <i class="material-icons">search</i>
                 </a>
                 <input type="text" id="barderechercher" size="30"
-                       placeholder="Rechercher">
+                       placeholder="Rechercher" onkeyup="search()">
             </div>
         </nav>
     </div>
 </header>
 
 <div class="sidebar" id="sidebar">
-    <a href="../Accueil/Index.php">Accueil</a>
-    <a href="Main.php">Forum</a>
+    <a href="index.php">Accueil</a>
+    <a href="../Forum/">Forum</a>
     <a href="../Compte/profile.php">Compte</a>
     <a href="../Con-Ins/connexion.php">Connexion</a>
 </div>
 
-<div class="body">
+<div class="body" id="body">
     <div class="description">
         <div class="img"><img src="<?php echo $photoSub; ?>" alt=""></div>
         <div class="text">
@@ -68,19 +68,23 @@ $photoSub = $sub['photo-sub'];
     </div>
     <div class="Posts">
         <?php
-        $query = "Select * from posts where idsub=$idsub";
+        $query = "Select * from posts where idsub=$idsub order by Date DESC ";
         $result = $database -> query( $query );
+        echo '<a href="Subs.createPost.php?Id=' . $idsub . '" class="newBtn" id="newBtn">New Post</a>';
         while ($posts = $result -> fetch_assoc()) {
-            echo '<a href="Posts.php?id=' . $posts['Idpost'] . '">' . $posts['Title'] . '</a>' . '</br>';
+            echo '<a href="Posts.php?id=' . $posts['Idpost'] . '">';
+            echo '<div class="Title">' . $posts['Title'] . '<date>' . $posts['Date'] . '</date>' . '</div>';
+            echo '<div class="post"> <p>' . $posts['Body'] . '</p> <img src="' . $posts['Photo'] . '" alt="">' . '</div>';
+            echo '</a>';
         }
-        echo '<a href="Subs.createPost.php?Id=' . $idsub . '" id="newBtn"> <i style="font-size: 2em" class="material-icons">add_circle_outline</i></a>';
 
         sessioncheck();
         sessioncheckForum();
         ?>
     </div>
 </div>
-<script src="../style_general/script.js"></script>
+<script src="../styles/style.js"></script>
+<script src="search.js"></script>
 </body>
 </html>
 

@@ -9,7 +9,7 @@ else {
     echo '<script></script>';
 }
 
-if (isset( $_POST['nameSub'], $_POST['descriptionSub'] )) {
+if (isset( $_POST['nameSub'], $_POST['descriptionSub'], $_POST['submit'] )) {
     $directory = __DIR__ . '/photosSubs/';
     $photoDirectory = $directory . basename( $_FILES['uploadPhotoInput']['name'] );
     $photo = '';
@@ -29,9 +29,12 @@ if (isset( $_POST['nameSub'], $_POST['descriptionSub'] )) {
     $resultSubQuery = $database -> query( $newSubQuery ) or die( 'query failed : ' . mysqli_error( $database ) );
     if ($resultSubQuery) {
         move_uploaded_file( $_FILES['uploadPhotoInput']['tmp_name'], $photoDirectory );
+        $idSub = $database -> insert_id;
+        $goBack = 'Location: ./Subs.php?idsub=' . $idSub;
+        header( $goBack ); //Envoi vers le post créé
     }
     else {
-        print_r( $resultSubQuery );
+        echo mysqli_error( $database );
     }
 }
 ?>
@@ -43,11 +46,11 @@ if (isset( $_POST['nameSub'], $_POST['descriptionSub'] )) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../style_general/header.css">
+    <link rel="stylesheet" href="../styles/header.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <link rel="stylesheet" href="../style_general/sidebar.css">
-    <link rel="stylesheet" href="styles/createNew.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/styleForum/createNew.css">
     <title>Créer un nouveau sub</title>
 </head>
 <body>
@@ -57,7 +60,7 @@ if (isset( $_POST['nameSub'], $_POST['descriptionSub'] )) {
         <a id="sandwitch-icon" onclick="sidebar()">
             <i class="material-icons">menu</i>
         </a>
-        <a href="../Accueil/Index.php">
+        <a href="index.php">
             logo
         </a>
     </div>
@@ -70,21 +73,21 @@ if (isset( $_POST['nameSub'], $_POST['descriptionSub'] )) {
                     <i class="material-icons">search</i>
                 </a>
                 <input type="text" id="barderechercher" size="30"
-                       placeholder="Rechercher">
+                       placeholder="Rechercher" onkeyup="search()">
             </div>
         </nav>
     </div>
 </header>
 
 <div class="sidebar" id="sidebar">
-    <a href="../Accueil/Index.php">Accueil</a>
-    <a href="../Forum/Main.php">Forum</a>
+    <a href="index.php">Accueil</a>
+    <a href="../Forum/">Forum</a>
     <a href="../Compte/profile.php">Compte</a>
     <a href="../Con-Ins/connexion.php">Connexion</a>
 </div>
 
 <div class="body">
-    <form action="Main.createSub.php" method="post" enctype="multipart/form-data">
+    <form action="Main.createSub.php" method="post" enctype="multipart/form-data" autocomplete="off">
         <label for="nameSub"> Nom
             <input type="text" name="nameSub">
         </label>
@@ -95,11 +98,13 @@ if (isset( $_POST['nameSub'], $_POST['descriptionSub'] )) {
             <input type="file" name="uploadPhotoInput" id="uploadPhotoInput">
             Browse photo
         </label>
-        <button type="submit">Créer sub</button>
+        <button type="submit" name="submit">Créer sub</button>
     </form>
 </div>
 
 <?php sessioncheck(); ?>
-<script src="../style_general/script.js"></script>
+<script src="../styles/style.js"></script>
+<script src="../styles/styleForum/photoBrowseBtn.js"></script>
+<script src="search.js"></script>
 </body>
 </html>

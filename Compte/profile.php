@@ -12,8 +12,8 @@ $Type = $_SESSION['Type'] ?? 'null';
 <head>
     <meta charset="UTF-8">
     <title>Mon Compte</title>
-    <link rel="stylesheet" href="../style_general/header.css">
-    <link rel="stylesheet" href="../style_general/sidebar.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
     <link rel="stylesheet" href="styleCompte.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -26,13 +26,13 @@ $Type = $_SESSION['Type'] ?? 'null';
         <a id="sandwitch-icon" onclick="sidebar()">
             <i class="material-icons">menu</i>
         </a>
-        <a href="../Accueil/Index.php">
+        <a href="index.php">
             logo
         </a>
     </div>
     <div class="nav">
         <nav id="nav">
-            <a href="../Forum/Main.php">Forum</a>
+            <a href="../Forum/">Forum</a>
             <div class="search">
                 <a id="rechercher" onclick="bar_de_recherche()">
                     <i class="material-icons">search</i>
@@ -45,8 +45,8 @@ $Type = $_SESSION['Type'] ?? 'null';
 </header>
 
 <div class="sidebar" id="sidebar">
-    <a href="../Accueil/Index.php">Accueil</a>
-    <a href="../Forum/Main.php">Forum</a>
+    <a href="index.php">Accueil</a>
+    <a href="../Forum/">Forum</a>
     <a href="../Compte/profile.php">Compte</a>
     <a href="../Con-Ins/connexion.php">Connexion</a>
 </div>
@@ -77,7 +77,7 @@ $Type = $_SESSION['Type'] ?? 'null';
     </div>
 </div>
 
-<script src="../style_general/script.js"></script>
+<script src="../styles/style.js"></script>
 </body>
 
 </html>

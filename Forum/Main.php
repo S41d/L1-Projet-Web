@@ -6,9 +6,9 @@ include '../sessioncheck.php';
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style_general/header.css">
-    <link rel="stylesheet" href="../style_general/sidebar.css">
-    <link rel="stylesheet" href="styles/Tiles.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/styleForum/forumStyle.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <title>Forum</title>
@@ -20,7 +20,7 @@ include '../sessioncheck.php';
         <a id="sandwitch-icon" onclick="sidebar()">
             <i class="material-icons">menu</i>
         </a>
-        <a href="../Accueil/Index.php">
+        <a href="index.php">
             logo
         </a>
     </div>
@@ -33,35 +33,36 @@ include '../sessioncheck.php';
                     <i class="material-icons">search</i>
                 </a>
                 <input type="text" id="barderechercher" size="30"
-                       placeholder="Rechercher">
+                       placeholder="Rechercher" onkeyup="search()">
             </div>
         </nav>
     </div>
 </header>
 
 <div class="sidebar" id="sidebar">
-    <a href="../Accueil/Index.php">Accueil</a>
-    <a href="../Forum/Main.php">Forum</a>
+    <a href="index.php">Accueil</a>
+    <a href="../Forum/">Forum</a>
     <a href="../Compte/profile.php">Compte</a>
     <a href="../Con-Ins/connexion.php">Connexion</a>
 </div>
 
-<div class="body">
+<div class="body" id="body">
     <div class="Subs">
         <?php
         $database = new mysqli( 'localhost', 'root', '', 'projet' );
-        $subquery = 'Select * From sub';
+        $subquery = 'Select * From sub order by idsub desc ';
         $result = $database -> query( $subquery ) or die( 'can\'t connect to server to get subs' );
+        echo '<a href="Main.createSub.php" class="newBtn" id="newBtn">New Sub</a>';
         while ($subname = $result -> fetch_assoc()) {
             echo '<a href="Subs.php?idsub=' . $subname['idsub'] . '">' . $subname['namesub'] . '</a>';
         }
-        echo '<a href="Main.createSub.php" id="newBtn"><i style="font-size: 2em" class="material-icons">add_circle_outline</i></a>';
         sessioncheck();
         sessioncheckForum();
         ?>
     </div>
 </div>
-<script src="../style_general/script.js"></script>
+<script src="../styles/style.js"></script>
+<script src="search.js"></script>
 </body>
 
 </html>

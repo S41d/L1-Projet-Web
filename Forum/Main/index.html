@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link href="../../styles/header.css" rel="stylesheet">
+    <link href="../../styles/sidebar.css" rel="stylesheet">
+    <link href="../../styles/styleForum/forumStyle.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <title>Forum</title>
+</head>
+
+<body>
+<header>
+    <div class="logo">
+        <a id="sandwitch-icon" onclick="sidebar()">
+            <i class="material-icons">menu</i>
+        </a>
+        <a href="../../Accueil/index.php">
+            logo
+        </a>
+    </div>
+    <div class="nav">
+        <nav id="nav">
+            <a href="../../Con-Ins/connexion.php" id="connexion">Connexion</a>
+            <a href="../../Compte/profile.php" id="compte">Compte</a>
+            <div class="search">
+                <a id="rechercher" onclick="bar_de_recherche()">
+                    <i class="material-icons">search</i>
+                </a>
+                <input id="barderechercher" onkeyup="search()" placeholder="Rechercher"
+                       size="30" type="text">
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="body" id="body">
+    <div class="Subs" id="subs"></div>
+</div>
+<script src="main.js"></script>
+<script src="../../styles/style.js"></script>
+<script src="../search.js"></script>
+
+</body>
+</html>

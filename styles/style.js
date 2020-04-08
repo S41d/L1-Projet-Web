@@ -4,7 +4,6 @@ function bar_de_recherche() {
     if (style.width === "0px") {
         searchinput.style.width = "240px";
         searchinput.style.paddingLeft = "20px";
-        searchinput.focus();
     } else {
         searchinput.style.width = "0";
         searchinput.style.paddingLeft = "0px";
