@@ -5,6 +5,7 @@ body {
     color            : white;
     display          : flex;
     justify-content  : center;
+    height           : 100vh;
 }
 
 .body {
@@ -13,45 +14,115 @@ body {
     transition : 0.25s;
 }
 
+@keyframes slide {
+    0% {
+        transform : translateX(-100%);
+    }
+    100% {
+        transform : translateX(0%);
+    }
+}
+
+
 form {
     display        : flex;
     flex-direction : column;
     margin         : 5em 5% 0 5%;
-    flex           : 1 1 800px;
+    flex           : 1 1 822px;
+    overflow       : hidden;
+    height         : 100vh;
 }
 
-form label {
-    font-size      : 3em;
+form div {
+    font-size      : 2em;
     display        : flex;
     flex-direction : column;
-    width          : 100%;
+    width          : inherit;
+    margin         : 50px 5px 20px 5px;
+    position       : relative;
 }
 
-form label input[type="text"] {
+form div label span {
+    z-index        : 1;
+    transition     : 0.2s;
+    outline        : none;
+    position       : absolute;
+    font-size      : 1.5em;
+    padding        : 4px;
+    pointer-events : none;
+}
+
+form input[type="text"] {
     font-size        : 1em;
     background-color : #383838;
     border           : none;
     transition       : 0.1s;
-    width            : 100%;
+    width            : 800px;
+    height           : inherit;
+    position         : absolute;
+    z-index          : 0;
+    margin-top       : 5px;
+    outline          : none;
+    color            : white;
+    padding          : 10px;
+    box-sizing       : border-box;
 }
 
-form label input[type="text"]:focus {
-    outline : white 1px solid;
+form input[type="text"]:focus + label span,
+form input[type="text"]:valid + label span {
+    outline   : none;
+    transform : translateY(-100%);
+    font-size : 1.2em;
 }
 
-form label textarea {
+form input[type="text"]:focus {
+    border  : 1px white solid;
+    outline : none;
+}
+
+form div textarea {
     background-color : #383838;
     border           : none;
     resize           : none;
-    font-size        : 0.5em;
     transition       : 0.1s;
+    color            : white;
+    position         : absolute;
+    width            : 800px;
+    height           : 300px;
+    font-size        : 1em;
+    padding          : 4px 10px;
+    box-sizing       : border-box;
 }
 
-form label textarea:focus {
-    outline : white 1px solid;
+form textarea:focus + label span,
+form textarea:valid + label span {
+    outline   : none;
+    transform : translateY(-100%);
+    font-size : 1.2em;
 }
 
-form #uploadPhotoSub {
+form textarea:focus {
+    border  : 1px white solid;
+    outline : none;
+}
+
+#name {
+    height : 60px;
+}
+
+#description {
+    height : 300px;
+}
+
+#buttons {
+    margin-top      : 0;
+    display         : flex;
+    flex-direction  : row;
+    justify-content : space-between;
+    width           : 800px;
+}
+
+form div #uploadPhotoSub {
     cursor           : pointer;
     transition       : 0.1s;
     background-color : #575757;
@@ -59,27 +130,28 @@ form #uploadPhotoSub {
     text-align       : center;
     width            : 200px;
     margin-top       : 10px;
-    margin-left      : 70%;
 }
 
 form #uploadPhotoSub:hover {
-    text-decoration : underline;
+    text-decoration  : underline;
+    background-color : #b4b4b4;
 }
 
-form #uploadPhotoSub input {
+#buttons input {
     display : none;
 }
 
 form button {
-    margin           : 30px 150px 0 150px;
-    font-size        : 1.4em;
-    padding          : 10px 0;
-    border-radius    : 50px;
     cursor           : pointer;
-    transition       : 0.2s;
-    color            : inherit;
-    border           : white 1px solid;
-    background-color : inherit;
+    transition       : 0.1s;
+    background-color : #575757;
+    font-size        : 1em;
+    text-align       : center;
+    width            : 200px;
+    margin-top       : 10px;
+    color            : white;
+    outline          : none;
+    border           : none;
 }
 
 form button:hover {

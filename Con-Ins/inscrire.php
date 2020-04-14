@@ -70,7 +70,7 @@ if (isset( $_POST['inscris'] )) {
 <head>
     <meta charset="utf-8">
     <title>Inscription</title>
-    <link rel="stylesheet" href="styleConnIns.css">
+    <link rel="stylesheet" href="../styles/styleConIns/styleConnIns.css">
 </head>
 <body>
 

@@ -1,5 +1,5 @@
 body {
-    background-color : #1c1c1c;
+    background-color : #171717;
     margin           : 0;
     padding          : 0;
     color            : white;
@@ -19,6 +19,18 @@ body {
     }
 }
 
+@keyframes fadeOut {
+    0% {
+        opacity : 1;
+        display : flex;
+    }
+    100% {
+        /*display        : none;*/
+        opacity        : 0;
+        flex-direction : column;
+    }
+}
+
 @keyframes tiles {
     0% {
         transform : scale(0.5, 1);
@@ -30,10 +42,50 @@ body {
     }
 }
 
+@keyframes cards-In {
+    0% {
+        transform : translate(0, 100px);
+        opacity   : 0;
+    }
+    100% {
+        transform : translate(0, 0);
+        opacity   : 1;
+    }
+}
+
+@keyframes newComment {
+    0% {
+        transform        : translate(0, 100px);
+        background-color : #b4b4b4;
+        opacity          : 1;
+    }
+    100% {
+        background-color : #3d3d3d;
+        transform        : translate(0, 0);
+        opacity          : 1;
+    }
+}
+
+@keyframes comments {
+    0% {
+        transform : translate(0, 100px);
+    }
+    100% {
+        transform : translate(0, 0);
+        opacity   : 1;
+    }
+}
+
 .body {
     margin-top : 4em;
     flex       : 0 1 900px;
     transition : 0.25s;
+    animation  : fadeIn 0.5s;
+    padding    : 0 10%;
+}
+
+#swup {
+    width : inherit;
 }
 
 /*Search*/
@@ -102,22 +154,24 @@ date {
 
 .post img {
     width      : 100%;
+    /*max-height : 200px;*/
     margin-top : 30px;
 }
 
 .comments {
-    width            : inherit;
-    padding          : 0 10px 30px 10px;
-    display          : flex;
-    flex-direction   : column;
-    background-color : #383838;
-    margin           : 50px 0 100px 0;
+    width          : inherit;
+    display        : flex;
+    flex-direction : column;
+    margin         : 50px 0 100px 0;
 }
 
 .commentHolder {
-    padding       : 30px 10px;
-    flex          : 1;
-    border-bottom : solid 1px gray;
+    background-color : #383838;
+    padding          : 30px 10px;
+    flex             : 1;
+    border-bottom    : solid 1px gray;
+    opacity          : 0;
+    animation        : comments 0.5s forwards;
 }
 
 .commentHead {
@@ -128,29 +182,28 @@ date {
 }
 
 .newComment {
-    margin-top : 20px;
-    padding    : 0 10px;
+    background-color : #383838;
+    margin-top       : 20px;
+    padding          : 20px 10px 0 10px;
+    display          : flex;
+    flex-direction   : column;
 }
 
-.newComment form {
-    display        : flex;
-    flex-direction : column;
-}
-
-.newComment form textarea {
+.newComment textarea {
     background-color : #383838;
     resize           : none;
     height           : 100px;
     padding          : 10px 4px 10px 4px;
+    border           : #b4b4b4 1px solid;
 }
 
-.newComment form textarea:focus {
+.newComment textarea:focus {
     border  : white 1px solid;
     outline : none;
     color   : white;
 }
 
-.newComment form button {
+.newComment button {
     background-color : #575757;
     outline          : none;
     border           : none;
@@ -158,7 +211,7 @@ date {
     color            : white;
 }
 
-.newComment form button:hover {
+.newComment button:hover {
     text-decoration : underline;
     cursor          : pointer;
 }
@@ -172,8 +225,6 @@ date {
     border-top    : #3d3d3d solid 1px;
     border-bottom : #3d3d3d solid 1px;
     padding       : 10px 0;
-    left          : 0;
-    right         : 0;
 }
 
 .description .text {
@@ -223,6 +274,22 @@ date {
     text-decoration  : none;
     color            : white;
     justify-content  : center;
+    opacity          : 0;
+    border-radius    : 10px;
+    animation        : cards-In 0.5s forwards;
+}
+
+.Posts a .post {
+    border-radius : 0 0 10px 10px;
+}
+
+.Posts a .Title {
+    border-radius : 10px 10px 0 0;
+}
+
+.Posts a img {
+    max-height : 350px;
+    object-fit : contain;
 }
 
 .Posts a .Title {
@@ -237,30 +304,38 @@ date {
     flex-direction : column;
     text-align     : center;
     flex           : 1 1 auto;
-    margin         : 0 100px;
+    margin         : 0 5%;
 }
 
 .Subs a {
-    align-items : center;
-}
-
-.Subs a {
-    display          : flex;
-    text-decoration  : none;
-    color            : white;
-    border           : gray 1px solid;
-    font-size        : 2em;
-    height           : 50px;
-    margin           : 30px;
-    padding          : 50px;
-    transition       : 0.2s;
-    background-color : #3d3d3d;
-    flex             : 0.1 1 150px;
-    justify-content  : center;
+    display             : flex;
+    flex-direction      : column;
+    align-items         : center;
+    opacity             : 0;
+    text-decoration     : none;
+    color               : white;
+    font-size           : 2em;
+    margin              : 30px 5%;
+    padding             : 9% 16%;
+    transition          : 0.2s;
+    background-color    : #3d3d3d;
+    flex                : 0.1 1 20%;
+    justify-content     : center;
+    animation-fill-mode : forwards;
+    animation           : cards-In 0.5s forwards;
+    border-radius       : 10px;
+    overflow            : hidden;
 }
 
 .Subs a:hover, .Posts a:hover {
     background-color : #575757;
+}
+
+.Subs a img {
+    width         : 100px;
+    border-radius : 100px;
+    height        : 100px;
+    object-fit    : cover;
 }
 
 .Subs .newBtn, .Posts .newBtn {

@@ -1,18 +1,17 @@
-<?php
-include '../sessioncheck.php';
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Accueil</title>
     <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles/styleAccueil/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link rel="stylesheet" href="../styles/sidebar.css">
+
+    <script defer src="../styles/style.js"></script>
+    <script defer src="indexScript.js"></script>
+    <script defer src="/Projet-Web-L1/sessionCheck.js"></script>
 </head>
 <body>
 
@@ -28,8 +27,8 @@ session_start();
     <div class="nav">
         <nav id="nav">
             <a href="../Forum/">Forum</a>
-            <a href="../Con-Ins/connexion.php" id="connexion">Connexion</a>
-            <a href="../Compte/profile.php" id="compte">Compte</a>
+            <a class="connexionButton" href="../Con-Ins/connexion.php" id="connexion">Connexion</a>
+            <a class="compteButton" href="../Compte/profile.php" id="compte">Compte</a>
             <div class="search">
                 <a id="rechercher" onclick="bar_de_recherche()">
                     <i class="material-icons">search</i>
@@ -44,8 +43,8 @@ session_start();
 <div class="sidebar" id="sidebar">
     <a href="index.php">Accueil</a>
     <a href="../Forum/">Forum</a>
-    <a href="../Compte/profile.php">Compte</a>
-    <a href="../Con-Ins/connexion.php">Connexion</a>
+    <a class="compteButton" href="../Compte/profile.php">Compte</a>
+    <a class="connexionButton" href="../Con-Ins/connexion.php">Connexion</a>
 </div>
 
 <div class="body" id="body">
@@ -61,10 +60,6 @@ session_start();
     }
     ?>
 </div>
-<script src="../styles/style.js"></script>
-<script src="indexScript.js"></script>
-<?php
-sessioncheck();
-?>
+
 </body>
 </html>

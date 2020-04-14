@@ -34,7 +34,7 @@ if (isset( $_POST['connecter'] )) {
 <head>
     <meta charset="utf-8">
     <title>Connexion</title>
-    <link rel="stylesheet" href="styleConnIns.css">
+    <link rel="stylesheet" href="../styles/styleConIns/styleConnIns.css">
 </head>
 <body>
 
