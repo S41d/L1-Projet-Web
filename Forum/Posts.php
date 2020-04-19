@@ -78,7 +78,7 @@ $post = $resultpost -> fetch_assoc();
             </div>
         </div>';
         echo '<div id="commentsHolder">';
-        $delai = 0.2;
+        $delai = 0.7;
         while ($comment = $resultcomments -> fetch_assoc()) {
             echo '<div style="animation-delay: ' . $delai . 's" class="commentHolder">';
             $dateComment = $comment['dateComment'];

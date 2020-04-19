@@ -141,6 +141,11 @@ form #uploadPhotoSub:hover {
     display : none;
 }
 
+#uploadPhotoSub {
+    overflow      : hidden;
+    text-overflow : ellipsis;
+}
+
 form button {
     cursor           : pointer;
     transition       : 0.1s;

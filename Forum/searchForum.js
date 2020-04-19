@@ -1,23 +1,17 @@
 let body = document.getElementById('body');
 let searchBar = document.getElementById('barderechercher');
 let resultsDiv = document.createElement("div");
-let transitionDiv = document.createElement("main");
 
 resultsDiv.classList.add('resultsDiv');
-transitionDiv.classList.add('transition-fade-scale');
-transitionDiv.setAttribute('id', 'swup')
-
-resultsDiv.appendChild(transitionDiv)
-
 
 function loadSearchResults(results) {
     let allResults = "";
     let animationdelay = 0.3;
     results.forEach(element => {
-        allResults += `<a href="/Projet-Web-L1/Forum/Subs.php?idsub=` + element.idSub + `" style="animation-delay: ` + animationdelay + `s">` + element.nameSub + `<br><p>` + element.descriptionSub + `</p></a>`;
+        allResults += `<a href="./Subs.php?idsub=` + element.idSub + `" style="animation-delay: ` + animationdelay + `s">` + element.nameSub + `<br><p>` + element.descriptionSub + `</p></a>`;
         animationdelay += 0.1;
     });
-    transitionDiv.innerHTML = allResults;
+    resultsDiv.innerHTML = allResults;
 
 let sideBar = document.getElementById('sideBar');
 document.body.insertBefore(resultsDiv, sideBar)

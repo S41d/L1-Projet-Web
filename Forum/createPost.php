@@ -1,13 +1,6 @@
 <?php
 session_start();
-$authorId = '';
-if (isset( $_SESSION['Iduser'] )) {
-    $authorId = $_SESSION['Iduser'];
-}
-else {
-    echo '<script></script>';
-}
-
+$authorId = $_SESSION['Iduser'];
 $idSub = $_GET['Id'] ?? $_POST['idSub'];
 
 if (isset( $_POST['title'], $_POST['text'], $_POST['submit'] )) {
@@ -110,7 +103,7 @@ if (isset( $_POST['title'], $_POST['text'], $_POST['submit'] )) {
             <label for="uploadPhotoInput" id="uploadPhotoSub">
                 Browse photo
             </label>
-            <input style="display: none;" type="text" name="idSub" value="<?php echo $idSub ?>">
+            <input type="text" name="idSub" value="<?php echo $idSub ?>">
             <button type="submit" name="submit">Poster</button>
         </div>
     </form>

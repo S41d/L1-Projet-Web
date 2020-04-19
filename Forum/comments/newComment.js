@@ -26,7 +26,7 @@ function firstRun() {
         commentsHolder = document.getElementById('commentsHolder');
         submitBtn.onclick = function () {
             sendNewComment();
-            setTimeout(getComments, 10)
+            setTimeout(getComments, 50)
             document.getElementById('newCommentText').value = '';
         }
     }
