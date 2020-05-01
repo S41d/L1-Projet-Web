@@ -7,6 +7,26 @@ body {
     justify-content  : center;
 }
 
+
+/* Transitions */
+.transition-fade-scale {
+    transition : 0.5s;
+    opacity    : 1;
+    transform  : scale(1);
+}
+
+html.is-animating .transition-fade-scale {
+    opacity   : 0;
+    transform : scale(0.9);
+}
+
+html.is-leaving .transition-fade-scale {
+    opacity   : 0;
+    transform : scale(1.1);
+}
+
+
+/* Animations */
 @keyframes fadeIn {
     0% {
         display        : none;
@@ -157,6 +177,13 @@ date {
     margin-top : 30px;
 }
 
+.commentCount {
+    background-color : #4c4c4c;
+    text-align       : right;
+    line-height      : 2.5em;
+    padding-right    : 10px;
+}
+
 .comments {
     width          : inherit;
     display        : flex;
@@ -275,6 +302,7 @@ date {
     opacity          : 0;
     border-radius    : 10px;
     animation        : cards-In 0.5s forwards;
+    outline          : none;
 }
 
 .Posts a .post {
@@ -323,6 +351,7 @@ date {
     animation           : cards-In 0.5s forwards;
     border-radius       : 10px;
     overflow            : hidden;
+    outline             : none;
 }
 
 .Subs a:hover, .Posts a:hover {
@@ -334,6 +363,10 @@ date {
     border-radius : 100px;
     height        : 100px;
     object-fit    : cover;
+}
+
+.Subs a img[src=""] {
+    display : none;
 }
 
 .Subs .newBtn, .Posts .newBtn {

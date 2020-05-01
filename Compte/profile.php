@@ -12,8 +12,8 @@ $Type = $_SESSION['Type'] ?? 'null';
 <head>
     <meta charset="UTF-8">
     <title>Mon Compte</title>
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/hearder-sidebar.css">
+
     <link rel="stylesheet" href="styleCompte.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons">

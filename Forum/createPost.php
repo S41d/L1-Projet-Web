@@ -3,15 +3,14 @@ session_start();
 $authorId = $_SESSION['Iduser'];
 $idSub = $_GET['Id'] ?? $_POST['idSub'];
 
-if (isset( $_POST['title'], $_POST['text'], $_POST['submit'] )) {
+if (isset($_POST['title'], $_POST['text'], $_POST['submit'])) {
     $directory = __DIR__ . '/photosPosts/';
-    $photoDirectory = $directory . basename( $_FILES['uploadPhotoInput']['name'] );
+    $photoDirectory = $directory . basename($_FILES['uploadPhotoInput']['name']);
     $photo = '';
     if ($_FILES['uploadPhotoInput']['name'] === '') {
         $photo = null;
         echo 'null';
-    }
-    else {
+    } else {
         $photo = './photosPosts/' . $_FILES['uploadPhotoInput']['name'];
         echo $photo;
     }
@@ -19,20 +18,19 @@ if (isset( $_POST['title'], $_POST['text'], $_POST['submit'] )) {
     $postTitle = $_POST['title'];
     $postText = $_POST['text'];
 
-    $database = new mysqli( 'localhost', 'root', '', 'projet' );
+    $database = new mysqli('localhost', 'root', '', 'projet');
 
     $newPostQuery = "Insert into posts(idsub, Autorpost, Title, Body, Photo) value ($idSub, $authorId , '$postTitle', '$postText', '$photo')";
-    $resultPostQuery = $database -> query( $newPostQuery ) or die( 'query failed : ' . mysqli_error( $database ) );
+    $resultPostQuery = $database->query($newPostQuery) or die('query failed : ' . mysqli_error($database));
 
     if ($resultPostQuery) {
-        move_uploaded_file( $_FILES['uploadPhotoInput']['tmp_name'],
-            $photoDirectory ); //copie le fichier dans le dossier local
-        $idPost = $database -> insert_id;
+        move_uploaded_file($_FILES['uploadPhotoInput']['tmp_name'],
+            $photoDirectory); //copie le fichier dans le dossier local
+        $idPost = $database->insert_id;
         $goBack = 'Location: ./Posts.php?id=' . $idPost;
-        header( $goBack ); //Envoi vers le post créé
-    }
-    else {
-        echo mysqli_error( $database );
+        header($goBack); //Envoi vers le post créé
+    } else {
+        echo mysqli_error($database);
     }
 }
 ?>
@@ -43,8 +41,8 @@ if (isset( $_POST['title'], $_POST['text'], $_POST['submit'] )) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/hearder-sidebar.css">
+
     <link rel="stylesheet" href="../styles/styleForum/createNew.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">

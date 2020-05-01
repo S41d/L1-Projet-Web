@@ -2,15 +2,14 @@
 session_start();
 $modId = $_SESSION['Iduser'];
 
-if (isset( $_POST['nameSub'], $_POST['descriptionSub'], $_POST['submit'] )) {
+if (isset($_POST['nameSub'], $_POST['descriptionSub'], $_POST['submit'])) {
     $directory = __DIR__ . '/photosSubs/';
-    $photoDirectory = $directory . basename( $_FILES['uploadPhotoInput']['name'] );
+    $photoDirectory = $directory . basename($_FILES['uploadPhotoInput']['name']);
     $photo = '';
     if ($_FILES['uploadPhotoInput']['name'] === '') {
         $photo = null;
         echo 'null';
-    }
-    else {
+    } else {
         $photo = './photosSubs/' . $_FILES['uploadPhotoInput']['name'];
         echo $photo;
     }
@@ -20,17 +19,16 @@ if (isset( $_POST['nameSub'], $_POST['descriptionSub'], $_POST['submit'] )) {
     $subDescription = $_POST['descriptionSub'];
     echo '<br>' . $subDescription;
     echo '<br>' . $modId;
-    $database = new mysqli( 'localhost', 'root', '', 'projet' );
+    $database = new mysqli('localhost', 'root', '', 'projet');
     $newSubQuery = "Insert into sub(namesub, description, `photo-sub`, modid) value ('$subName', '$subDescription', '$photo', $modId)";
-    $resultSubQuery = $database -> query( $newSubQuery ) or die( 'query failed : ' . mysqli_error( $database ) );
+    $resultSubQuery = $database->query($newSubQuery) or die('query failed : ' . mysqli_error($database));
     if ($resultSubQuery) {
-        move_uploaded_file( $_FILES['uploadPhotoInput']['tmp_name'], $photoDirectory );
-        $idSub = $database -> insert_id;
+        move_uploaded_file($_FILES['uploadPhotoInput']['tmp_name'], $photoDirectory);
+        $idSub = $database->insert_id;
         $goBack = 'Location: ./Subs.php?idsub=' . $idSub;
-        header( $goBack ); //Envoi vers le post créé
-    }
-    else {
-        echo mysqli_error( $database );
+        header($goBack); //Envoi vers le post créé
+    } else {
+        echo mysqli_error($database);
     }
 }
 ?>
@@ -42,15 +40,15 @@ if (isset( $_POST['nameSub'], $_POST['descriptionSub'], $_POST['submit'] )) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/hearder-sidebar.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <link rel="stylesheet" href="../styles/sidebar.css">
+
     <link rel="stylesheet" href="../styles/styleForum/createNew.css">
     <title>Créer un nouveau sub</title>
     <script defer src="../styles/style.js"></script>
     <script defer src="../styles/styleForum/photoBrowseBtn.js"></script>
-    <script defer src="searchForum.js"></script>
+    <script defer src="search/searchForum.js"></script>
     <script defer src="../sessionCheck.js"></script>
 </head>
 <body>

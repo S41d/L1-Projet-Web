@@ -1,11 +1,13 @@
 <?php
 session_start();
 
-$database = new mysqli( 'localhost', 'root', '', 'projet' );
+$database = new mysqli('localhost', 'root', '', 'projet');
 $idsub = $_GET['idsub'];
-$querysub = "Select * from sub where idsub=$idsub";
-$resultsub = $database -> query( $querysub );
-$sub = $resultsub -> fetch_assoc();
+
+$querysub = "select * from sub where idsub=$idsub";
+
+$resultsub = $database->query($querysub);
+$sub = $resultsub->fetch_assoc();
 
 $photoSub = $sub['photo-sub'];
 ?>
@@ -15,22 +17,17 @@ $photoSub = $sub['photo-sub'];
 <head>
     <meta charset="UTF-8">
     <title><?php echo $sub['namesub']; ?></title>
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/hearder-sidebar.css">
     <link rel="stylesheet" href="../styles/styleForum/forumStyle.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <link rel="stylesheet" href="transitionsForum.css">
     <script defer src="../node_modules/swup/dist/swup.min.js"></script>
     <script defer src="pageTransitionsEnable.js"></script>
-    <script>
-        window.onunload = function () {
-        }
-    </script>
     <script defer src="../styles/style.js"></script>
-    <script defer src="searchForum.js"></script>
+    <script defer src="search/searchForum.js"></script>
     <script defer src="../sessionCheck.js"></script>
     <script defer src="comments/newComment.js"></script>
+    <script defer src="subMod/deleteSub.js"></script>
 </head>
 <body>
 
@@ -80,14 +77,24 @@ $photoSub = $sub['photo-sub'];
         </div>
         <div class="Posts">
             <?php
-            $query = "Select * from posts where idsub=$idsub order by Date DESC ";
-            $result = $database -> query( $query );
+            $query = "
+                select p.*, count(c.Idcomment) from comments c, posts p, commentpost cp 
+                where p.Idpost = cp.Idpost and c.Idcomment = cp.idcomment and idsub=$idsub
+                group by p.Idpost 
+                order by count(c.Idcomment) desc
+            ";
+
+            $result = $database->query($query);
             echo '<a style="animation-delay: 0.2s" href="createPost.php?Id=' . $idsub . '" class="newBtn" id="newBtn">New Post</a>';
             $delai = 0.3;
-            while ($posts = $result -> fetch_assoc()) {
+            while ($posts = $result->fetch_assoc()) {
                 echo '<a style="animation-delay:' . $delai . 's" href="/Projet-Web-L1/Forum/Posts.php?id=' . $posts['Idpost'] . '">';
                 echo '<div class="Title">' . $posts['Title'] . '<date>' . $posts['Date'] . '</date>' . '</div>';
-                echo '<div class="post"> <p>' . $posts['Body'] . '</p> <img src="' . $posts['Photo'] . '" alt="">' . '</div>';
+                echo '<div class="post"> <p>'
+                    . $posts['Body'] . '</p> '
+                    . '<img src="' . $posts['Photo'] . '" alt="">'
+                    . '</div>';
+                echo '<div>' . $posts['count(c.Idcomment)'] . ' commentaires</div>';
                 echo '</a>';
                 $delai += 0.1;
             }

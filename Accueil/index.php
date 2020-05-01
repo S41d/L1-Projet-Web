@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Accueil</title>
-    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/hearder-sidebar.css">
     <link rel="stylesheet" href="../styles/styleAccueil/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <link rel="stylesheet" href="../styles/sidebar.css">
+
 
     <script defer src="../styles/style.js"></script>
     <script defer src="indexScript.js"></script>
@@ -49,13 +49,13 @@
 
 <div class="body" id="body">
     <?php
-    $database = new mysqli( 'localhost', 'root', '', 'projet' );
+    $database = new mysqli('localhost', 'root', '', 'projet');
     $queryfilm = 'Select `Link-Photo` From films';
-    $result = $database -> query( $queryfilm ) or die( $database -> error );
-    while ($photos = $result -> fetch_assoc()) {
-        $link = implode( $photos );
-        $id = substr( $link, 9, -4 ) . '/g';
-        $a = substr( $id, 0, -2 );
+    $result = $database->query($queryfilm) or die($database->error);
+    while ($photos = $result->fetch_assoc()) {
+        $link = implode($photos);
+        $id = substr($link, 9, -4) . '/g';
+        $a = substr($id, 0, -2);
         echo "<a href=\"films.php?id=$a\" style=\"background-image: url($link);\" id=\"$id\" '></a>";
     }
     ?>

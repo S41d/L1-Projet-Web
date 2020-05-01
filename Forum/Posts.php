@@ -2,12 +2,20 @@
 session_start();
 
 $postid = $_GET['id'];
-$database = new mysqli( 'localhost', 'root', '', 'projet' );
+$database = new mysqli('localhost', 'root', '', 'projet');
 $postquery = "Select * from posts where Idpost = $postid ";
-$commentsQuery = "Select comments.* from comments, commentpost where commentpost.idcomment = comments.idcomment and commentpost.Idpost = $postid order by dateComment DESC ";
-$resultpost = $database -> query( $postquery ) or die( 'can\'t connect to server to get posts' );
-$resultcomments = $database -> query( $commentsQuery );
-$post = $resultpost -> fetch_assoc();
+$commentsQuery = "Select comments.* from comments, commentpost 
+                where commentpost.idcomment = comments.idcomment and commentpost.Idpost = $postid 
+                order by dateComment DESC ";
+$commentCountQuery = "
+                    Select count(commentpost.Idcomment) from posts, commentpost 
+                    where posts.Idpost=commentpost.Idpost and posts.Idpost=$postid
+                    ";
+$resultCommentCountQuery = $database->query($commentCountQuery) or die('can\'t get comment count');
+$resultCommentCountQuery = $resultCommentCountQuery->fetch_assoc();
+$resultpost = $database->query($postquery) or die('can\'t connect to server to get posts');
+$resultcomments = $database->query($commentsQuery);
+$post = $resultpost->fetch_assoc();
 ?> <!-- Post -->
 
 <!doctype html>
@@ -17,18 +25,18 @@ $post = $resultpost -> fetch_assoc();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/hearder-sidebar.css">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link rel="stylesheet" href="../styles/styleForum/forumStyle.css">
-    <link rel="stylesheet" href="transitionsForum.css">
     <script defer src="../node_modules/swup/dist/swup.min.js"></script>
     <script defer src="pageTransitionsEnable.js"></script>
     <script defer src="../styles/style.js"></script>
-    <script defer src="searchForum.js"></script>
+    <script defer src="search/searchForum.js"></script>
     <script defer src="../sessionCheck.js"></script>
     <script defer src="comments/newComment.js"></script>
+    <script defer src="subMod/deleteSub.js"></script>
     <title><?php echo $post['Title'] ?></title>
 </head>
 <body>
@@ -69,17 +77,21 @@ $post = $resultpost -> fetch_assoc();
     <main id="swup" class="transition-fade-scale">
         <?php
         echo '<div class="Title">' . $post['Title'] . '<date>' . $post['Date'] . '</date>' . '</div>';
-        echo '<div class="post"> <p>' . $post['Body'] . '</p> <img src="' . $post['Photo'] . '" alt="">' . '</div>';
+        echo '<div class="post">'
+            . '<p>' . $post['Body'] . '</p>'
+            . '<img src="' . $post['Photo'] . '" alt="">'
+            . '</div>';  // post
+        echo '<div class="commentCount">' . $resultCommentCountQuery['count(commentpost.Idcomment)'] . ' commentaires </div>';
         echo '<div class="comments">';
         echo '<div class="newComment" id="newComment"> 
             <textarea name="newComment" id="newCommentText" placeholder="Content"> </textarea>
             <div>
-            <button id="submit">Post Comment</button>
+                <button id="submit">Post Comment</button>
             </div>
         </div>';
         echo '<div id="commentsHolder">';
         $delai = 0.7;
-        while ($comment = $resultcomments -> fetch_assoc()) {
+        while ($comment = $resultcomments->fetch_assoc()) {
             echo '<div style="animation-delay: ' . $delai . 's" class="commentHolder">';
             $dateComment = $comment['dateComment'];
             echo '<div class="commentHead">' . $comment['author'] . ' <date>' . $dateComment . '</date> ' . '</div>';
