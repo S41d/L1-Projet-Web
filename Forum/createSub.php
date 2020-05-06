@@ -49,7 +49,6 @@ if (isset($_POST['nameSub'], $_POST['descriptionSub'], $_POST['submit'])) {
     <script defer src="../styles/style.js"></script>
     <script defer src="../styles/styleForum/photoBrowseBtn.js"></script>
     <script defer src="search/searchForum.js"></script>
-    <script defer src="../sessionCheck.js"></script>
 </head>
 <body>
 

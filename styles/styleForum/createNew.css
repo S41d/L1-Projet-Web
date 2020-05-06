@@ -12,6 +12,7 @@ body {
     margin-top : 4em;
     flex       : 0 1 900px;
     transition : 0.25s;
+    width: 100%;
 }
 
 @keyframes slide {
@@ -37,7 +38,6 @@ form div {
     font-size      : 2em;
     display        : flex;
     flex-direction : column;
-    width          : inherit;
     margin         : 50px 5px 20px 5px;
     position       : relative;
 }
@@ -57,7 +57,7 @@ form input[type="text"] {
     background-color : #383838;
     border           : none;
     transition       : 0.1s;
-    width            : 800px;
+    width: 100%;
     height           : inherit;
     position         : absolute;
     z-index          : 0;
@@ -87,7 +87,7 @@ form div textarea {
     transition       : 0.1s;
     color            : white;
     position         : absolute;
-    width            : 800px;
+    width            : 100%;
     height           : 300px;
     font-size        : 1em;
     padding          : 4px 10px;
@@ -119,7 +119,7 @@ form textarea:focus {
     display         : flex;
     flex-direction  : row;
     justify-content : space-between;
-    width           : 800px;
+    width           : 100%;
 }
 
 form div #uploadPhotoSub {
@@ -130,6 +130,9 @@ form div #uploadPhotoSub {
     text-align       : center;
     width            : 200px;
     margin-top       : 10px;
+    padding: 10px 10px;
+    border: #a6a4a7 1px solid;
+    line-height: 40px;
 }
 
 form #uploadPhotoSub:hover {

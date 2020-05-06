@@ -49,7 +49,6 @@ if (isset($_POST['title'], $_POST['text'], $_POST['submit'])) {
     <title>Nouveau Poste</title>
     <script defer src="../styles/style.js"></script>
     <script defer src="../styles/styleForum/photoBrowseBtn.js"></script>
-    <script defer src="../sessionCheck.js"></script>
 </head>
 <body>
 

@@ -27,7 +27,7 @@ $photoSub = $sub['photo-sub'];
     <script defer src="search/searchForum.js"></script>
     <script defer src="../sessionCheck.js"></script>
     <script defer src="comments/newComment.js"></script>
-    <script defer src="subMod/deleteSub.js"></script>
+    <script defer src="subMod/deletePost.js"></script>
 </head>
 <body>
 
@@ -78,9 +78,11 @@ $photoSub = $sub['photo-sub'];
         <div class="Posts">
             <?php
             $query = "
-                select p.*, count(c.Idcomment) from comments c, posts p, commentpost cp 
-                where p.Idpost = cp.Idpost and c.Idcomment = cp.idcomment and idsub=$idsub
-                group by p.Idpost 
+                select p.*, count(c.Idcomment) from  posts p
+                left join commentpost cp on p.Idpost = cp.Idpost
+                left join comments c on cp.idcomment = c.Idcomment
+                where p.idsub = $idsub
+                group by p.Idpost
                 order by count(c.Idcomment) desc
             ";
 
@@ -88,8 +90,9 @@ $photoSub = $sub['photo-sub'];
             echo '<a style="animation-delay: 0.2s" href="createPost.php?Id=' . $idsub . '" class="newBtn" id="newBtn">New Post</a>';
             $delai = 0.3;
             while ($posts = $result->fetch_assoc()) {
-                echo '<a style="animation-delay:' . $delai . 's" href="/Projet-Web-L1/Forum/Posts.php?id=' . $posts['Idpost'] . '">';
-                echo '<div class="Title">' . $posts['Title'] . '<date>' . $posts['Date'] . '</date>' . '</div>';
+                echo '<a class="sub-posts" style="animation-delay:' . $delai . 's" href="/Projet-Web-L1/Forum/Posts.php?id=' . $posts['Idpost'] . '">';
+                echo '<div class="Title"> <div>' . $posts['Title'] . '<date>' . $posts['Date'] . '</date> </div>'
+                    . '</div>';
                 echo '<div class="post"> <p>'
                     . $posts['Body'] . '</p> '
                     . '<img src="' . $posts['Photo'] . '" alt="">'

@@ -2,16 +2,11 @@
 session_start();
 
 $database = new mysqli('localhost', 'root', '', 'projet');
-$idUser = $_SESSION['Iduser'];
-$query = "Select * from users where Iduser=$idUser";
+$idSub = $_GET['idSub'] ;
+$query = "Select * from sub where idsub=$idSub";
 $result = $database->query($query);
 $result = $result->fetch_assoc();
 
-$data = array (
-    'id' => $result['Iduser'],
-    'name' => $result['Name'],
-    'email' => $result['Email'],
-    'accountType' => $result['accountType']
-);
+$data = $result['modid'];
 
 echo json_encode($data);

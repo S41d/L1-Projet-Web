@@ -8,7 +8,7 @@ function loadSearchResults(results) {
     let allResults = "";
     let animationdelay = 0.3;
     results.forEach(element => {
-        allResults += `<a href=` + element.idSub + `"../Subs.php?idsub=" style="animation-delay: ` + animationdelay + `s">` + element.nameSub + `<br><p>` + element.descriptionSub + `</p></a>`;
+        allResults += `<a href=` + `"./Subs.php?idsub=`+ element.idSub + `" style="animation-delay: `  + animationdelay + `s">` + element.nameSub + `<br><p>` + element.descriptionSub + `</p></a>`;
         animationdelay += 0.1;
     });
     resultsDiv.innerHTML = allResults;
@@ -21,7 +21,7 @@ function loadSearchResults(results) {
 function searchForum() {
     let searchInput = searchBar.value;
     let requestSubs = new XMLHttpRequest();
-    requestSubs.open('GET', './searchSubs.php?input=' + searchInput, true);
+    requestSubs.open('GET', 'search/searchSubs.php?input=' + searchInput, true);
     requestSubs.onload = function () {
         if (this.responseText !== '') {
             let searchResults = JSON.parse(this.responseText);

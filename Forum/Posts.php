@@ -36,7 +36,7 @@ $post = $resultpost->fetch_assoc();
     <script defer src="search/searchForum.js"></script>
     <script defer src="../sessionCheck.js"></script>
     <script defer src="comments/newComment.js"></script>
-    <script defer src="subMod/deleteSub.js"></script>
+    <script defer src="subMod/deletePost.js"></script>
     <title><?php echo $post['Title'] ?></title>
 </head>
 <body>

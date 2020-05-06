@@ -36,7 +36,7 @@ body {
     left       : 50%;
     background : #1c1c1c;
     text-align : center;
-    animation  : box 0.5s forwards;
+    animation  : box 0.7s forwards;
 }
 
 .box h1 {
@@ -58,7 +58,7 @@ body {
     border-radius   : 24px;
     transition      : 0.25s;
     animation       : tiles 0.5s forwards;
-    animation-delay : 0.3s;
+    animation-delay : 0.7s;
     opacity         : 0;
 }
 

@@ -97,19 +97,21 @@ html.is-leaving .transition-fade-scale {
 }
 
 .body {
+    display: flex;
     margin-top : 4em;
-    flex       : 0 1 900px;
+    width: 100%;
     transition : 0.25s;
     animation  : fadeIn 0.5s;
     padding    : 0 10%;
+    justify-content: center;
 }
 
 #swup {
-    width : inherit;
+    width: inherit;
+    max-width: 900px;
 }
 
 /* Search */
-
 .resultsDiv {
     display             : flex;
     flex-direction      : column;
@@ -144,22 +146,37 @@ html.is-leaving .transition-fade-scale {
 }
 
 /* Posts */
-
 .Title {
-    width            : inherit;
     background-color : #575757;
     font-size        : 2em;
     padding          : 20px 10px;
     margin-top       : 50px;
+    display          : flex;
+    justify-content  : space-between;
 }
 
-date {
-    font-size   : 0.7em;
+.Title date {
+    font-size   : 0.8em;
     margin-left : 30px;
 }
 
+.Title object a {
+    color            : #d34d4d;
+    margin           : 0;
+    font-weight      : bold;
+    border-radius    : 0;
+    background-color : transparent;
+}
+
+.Title object a:hover {
+    color : white;
+}
+
+#swup > .Title {
+    display: block;
+}
+
 .post {
-    width            : inherit;
     display          : block;
     background-color : #383838;
     padding          : 30px 10px 50px 10px;
@@ -197,6 +214,7 @@ date {
     flex             : 1;
     border-bottom    : solid 1px gray;
     opacity          : 0;
+    font-size: 1em;
     animation        : comments 0.5s forwards;
 }
 
@@ -242,7 +260,6 @@ date {
 }
 
 /* Main et Subs */
-
 .description {
     margin        : 2em 0 0 0;
     color         : white;
@@ -285,8 +302,7 @@ date {
     flex-direction  : column;
     justify-content : space-around;
     text-align      : center;
-    flex            : 1 1 auto;
-    margin          : 0 100px;
+    width           : inherit;
 }
 
 .Posts a {
@@ -377,4 +393,10 @@ date {
     align-items     : center;
     padding         : 10px;
     margin-bottom   : 0;
+}
+
+@media (max-width: 700px) {
+    .body {
+        padding: 0;
+    }
 }

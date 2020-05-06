@@ -71,24 +71,24 @@ if (isset($_POST['inscris'])) {
 <form autocomplete="off" action="inscrire.php" method="post">
     <div class="box">
         <h1>Inscription</h1>
-        <input autocomplete="off" type="text" name="nom" placeholder="Votre nom"
+        <input autocomplete="off" type="text" name="nom" placeholder="Votre nom" style="animation-delay:0.7s"
                id="nom"
                value="<?php if (isset($nom)) {
                    echo $nom;
                } ?>">
 
-        <input autocomplete="off" type="text" name="pseudo" id="pseudo"
+        <input autocomplete="off" type="text" name="pseudo" id="pseudo" style="animation-delay:0.8s"
                placeholder="Votre pseudo"
                value="<?php if (isset($pseudo)) {
                    echo $pseudo;
                } ?>">
-        <input autocomplete="off" type="email" name="mail" id="mail"
+        <input autocomplete="off" type="email" name="mail" id="mail" style="animation-delay:0.9s"
                placeholder="Votre email"
                value="<?php if (isset($mail)) {
                    echo $mail;
                } ?>">
-        <input type="password" name="mdp" id="mdp" placeholder="*****">
-        <input type="password" name="mdp2" id="mdp2" placeholder="*****">
+        <input type="password" name="mdp" id="mdp" placeholder="*****" style="animation-delay:1s">
+        <input type="password" name="mdp2" id="mdp2" placeholder="*****" style="animation-delay:1.1s">
         <input type="submit" name="inscris" value="S'inscrire">
     </div>
 </form>

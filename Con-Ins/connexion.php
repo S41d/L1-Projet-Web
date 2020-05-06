@@ -39,9 +39,9 @@ if (isset($_POST['connecter'])) {
 <form autocomplete="off" action="connexion.php" method="post">
     <div class="box">
         <h1>Connexion</h1>
-        <input autocomplete="off" type="text" name="connexionpseudo"
+        <input autocomplete="off" type="text" name="connexionpseudo" style="animation-delay:0.7s"
                placeholder="Pseudo"/>
-        <input autocomplete="off" type="password" name="connexionmdp"
+        <input autocomplete="off" type="password" name="connexionmdp" style="animation-delay:0.8s"
                placeholder="Mot de passe"/>
         <input type="submit" name="connecter" value="Se connecter"/>
         <p>ou <a href="inscrire.php">inscrivez-vous</a></p>
