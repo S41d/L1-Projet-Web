@@ -1,0 +1,51 @@
+body {
+    display          : flex;
+    flex-direction   : column;
+    justify-content  : center;
+    background-color : #1c1c1c;
+    overflow-x       : hidden;
+}
+
+.body {
+    margin          : 4em 50px 0 50px;
+    justify-content : space-around;
+    display         : flex;
+    flex-wrap       : wrap;
+    text-align      : center;
+    transition      : 0.2s;
+}
+
+.body a {
+    transition      : 0.25s;
+    height          : 180px;
+    width           : 320px;
+    background-size : cover;
+    margin          : 30px 20px;
+    box-sizing      : content-box;
+    flex            : 0.2 1 300px;
+}
+
+.body a:hover {
+    filter     : blur(1px);
+    transition : 0.25s;
+    z-index    : 0;
+}
+
+@media (max-width: 800px) {
+    .body {
+        padding: 0;
+        margin: 4em 0 0;
+    }
+    .body a {
+        margin: 30px 10px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    .body a {
+        margin: 5px 10px;
+        width: 70%;
+        flex: 1 1 100%;
+    }
+}
