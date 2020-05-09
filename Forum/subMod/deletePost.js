@@ -79,4 +79,3 @@ function addButtons() {
 }
 
 fileCheck()
-swup.on('contentReplaced', fileCheck)

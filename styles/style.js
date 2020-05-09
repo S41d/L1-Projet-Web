@@ -2,7 +2,7 @@ function bar_de_recherche() {
     let searchinput = document.getElementById('barderechercher');
     let style = window.getComputedStyle(searchinput);
     if (style.width === "0px") {
-        searchinput.style.width = "240px";
+        searchinput.style.width = "200px";
         searchinput.style.paddingLeft = "20px";
     } else {
         searchinput.style.width = "0";

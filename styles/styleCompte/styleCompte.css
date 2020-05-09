@@ -10,6 +10,7 @@ body {
     justify-content : center;
     align-content   : center;
     align-items     : center;
+    width: 100%;
 }
 
 label {
@@ -27,7 +28,6 @@ label {
 .labels {
     display         : flex;
     justify-content : space-between;
-    width           : 800px;
 }
 
 .labels label {
@@ -84,3 +84,12 @@ label {
     color : #1c1c1c;
 }
 
+@media (max-width: 700px) {
+    .labels {
+        flex-direction: column;
+        align-items: center;
+    }
+    .labels label {
+        margin: 10px 0;
+    }
+}

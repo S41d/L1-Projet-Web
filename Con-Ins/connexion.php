@@ -31,6 +31,7 @@ if (isset($_POST['connecter'])) {
 <html lang="FR">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Connexion</title>
     <link rel="stylesheet" href="../styles/styleConIns/styleConnIns.css">
 </head>
@@ -44,7 +45,7 @@ if (isset($_POST['connecter'])) {
         <input autocomplete="off" type="password" name="connexionmdp" style="animation-delay:0.8s"
                placeholder="Mot de passe"/>
         <input type="submit" name="connecter" value="Se connecter"/>
-        <p>ou <a href="inscrire.php">inscrivez-vous</a></p>
+        <p>Vous n'avez pas de compte?  <a href="inscrire.php">Inscrivez-vous</a></p>
     </div>
 </form>
 

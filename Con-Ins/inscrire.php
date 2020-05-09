@@ -62,6 +62,7 @@ if (isset($_POST['inscris'])) {
 <html lang="FR">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Inscription</title>
     <link rel="stylesheet" href="../styles/styleConIns/styleConnIns.css">
 </head>
@@ -90,6 +91,7 @@ if (isset($_POST['inscris'])) {
         <input type="password" name="mdp" id="mdp" placeholder="*****" style="animation-delay:1s">
         <input type="password" name="mdp2" id="mdp2" placeholder="*****" style="animation-delay:1.1s">
         <input type="submit" name="inscris" value="S'inscrire">
+        <p>Vous avez un compte? <a href="connexion.php"> Connectez-vous</a></p>
     </div>
 </form>
 

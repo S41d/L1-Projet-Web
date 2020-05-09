@@ -49,6 +49,7 @@ if (isset($_POST['nameSub'], $_POST['descriptionSub'], $_POST['submit'])) {
     <script defer src="../styles/style.js"></script>
     <script defer src="../styles/styleForum/photoBrowseBtn.js"></script>
     <script defer src="search/searchForum.js"></script>
+    <script defer src="../sessionCheck.js"></script>
 </head>
 <body>
 
@@ -57,7 +58,7 @@ if (isset($_POST['nameSub'], $_POST['descriptionSub'], $_POST['submit'])) {
         <a id="sandwitch-icon" onclick="sidebar()">
             <i class="material-icons">menu</i>
         </a>
-        <a href="index.php">
+        <a href="../Accueil/index.php">
             logo
         </a>
     </div>
@@ -77,7 +78,7 @@ if (isset($_POST['nameSub'], $_POST['descriptionSub'], $_POST['submit'])) {
 </header>
 
 <div class="sidebar" id="sidebar">
-    <a href="index.php">Accueil</a>
+    <a href="../Accueil/index.php">Accueil</a>
     <a href="../Forum/">Forum</a>
     <a class="compteButton" href="../Compte/profile.php">Compte</a>
     <a class="connexionButton" href="../Con-Ins/connexion.php">Connexion</a>

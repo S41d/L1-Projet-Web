@@ -2,16 +2,15 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../styles/hearder-sidebar.css">
 
     <link rel="stylesheet" href="../styles/styleForum/forumStyle.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <script defer src="../node_modules/swup/dist/swup.min.js"></script>
-    <script defer src="pageTransitionsEnable.js"></script>
+    <script defer src="../sessionCheck.js"></script>
     <script defer src="../styles/style.js"></script>
     <script defer src="search/searchForum.js"></script>
-    <script defer src="../sessionCheck.js"></script>
     <script defer src="comments/newComment.js"></script>
     <script defer src="subMod/deletePost.js"></script>
     <title>Forum</title>
@@ -23,7 +22,7 @@
         <a id="sandwitch-icon" onclick="sidebar()">
             <i class="material-icons">menu</i>
         </a>
-        <a href="/Projet-Web-L1/Accueil/index.php">
+        <a href="../Accueil/index.php">
             logo
         </a>
     </div>
@@ -48,27 +47,26 @@
     <a class="compteButton" href="../Compte/profile.php">Compte</a>
     <a class="connexionButton" href="../Con-Ins/connexion.php">Connexion</a>
 </div>
+
 <div class="body" id="body">
-    <main id="swup" class="transition-fade-scale">
-        <div class="Subs">
-            <?php
-            $database = new mysqli('localhost', 'root', '', 'projet');
-            $subquery = 'select *
+    <div class="Subs">
+        <?php
+        $database = new mysqli('localhost', 'root', '', 'projet');
+        $subquery = 'select *
                         from sub
                         order by namesub;
                         ';
-            $result = $database->query($subquery) or die('can\'t connect to server to get subs');
-            echo '<a href="createSub.php" style="animation-delay: 0.2s" class="newBtn" id="newBtn">New Sub</a>';
-            $sec = 0.3;
-            while ($subname = $result->fetch_assoc()) {
-                echo '<a style="animation-delay :' . $sec . 's;" href="/Projet-Web-L1/Forum/Subs.php?idsub=' . $subname['idsub'] . '" >'
-                    . '<img src="' . $subname['photo-sub'] . '" alt="">' . $subname['namesub']
-                    . '</a>';
-                $sec += 0.1;
-            }
-            ?>
-        </div>
-    </main>
+        $result = $database->query($subquery) or die('can\'t connect to server to get subs');
+        echo '<a href="createSub.php" style="animation-delay: 0.2s" class="newBtn" id="newBtn">New Sub</a>';
+        $sec = 0.3;
+        while ($subname = $result->fetch_assoc()) {
+            echo '<a style="animation-delay :' . $sec . 's;" href="./Subs.php?idsub=' . $subname['idsub'] . '" >'
+                . '<img src="' . $subname['photo-sub'] . '" alt="">' . $subname['namesub']
+                . '</a>';
+            $sec += 0.1;
+        }
+        ?>
+    </div>
 </div>
 
 </body>

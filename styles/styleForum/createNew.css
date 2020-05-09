@@ -12,7 +12,8 @@ body {
     margin-top : 4em;
     flex       : 0 1 900px;
     transition : 0.25s;
-    width: 100%;
+    width      : 100%;
+    position   : relative;
 }
 
 @keyframes slide {
@@ -31,7 +32,7 @@ form {
     margin         : 5em 5% 0 5%;
     flex           : 1 1 822px;
     overflow       : hidden;
-    height         : 100vh;
+    height         : 800px;
 }
 
 form div {
@@ -57,7 +58,7 @@ form input[type="text"] {
     background-color : #383838;
     border           : none;
     transition       : 0.1s;
-    width: 100%;
+    width            : 100%;
     height           : inherit;
     position         : absolute;
     z-index          : 0;
@@ -130,9 +131,9 @@ form div #uploadPhotoSub {
     text-align       : center;
     width            : 200px;
     margin-top       : 10px;
-    padding: 10px 10px;
-    border: #a6a4a7 1px solid;
-    line-height: 40px;
+    padding          : 10px 10px;
+    border           : #a6a4a7 1px solid;
+    line-height      : 40px;
 }
 
 form #uploadPhotoSub:hover {

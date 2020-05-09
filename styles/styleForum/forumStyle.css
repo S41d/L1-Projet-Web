@@ -7,24 +7,17 @@ body {
     justify-content  : center;
 }
 
-
-/* Transitions */
-.transition-fade-scale {
-    transition : 0.5s;
-    opacity    : 1;
-    transform  : scale(1);
+.body {
+    display         : flex;
+    margin-top      : 4em;
+    width           : 100%;
+    transition      : 0.25s;
+    animation       : fadeIn 0.5s;
+    padding         : 0 10%;
+    justify-content : center;
+    flex-direction  : column;
+    max-width       : 900px;
 }
-
-html.is-animating .transition-fade-scale {
-    opacity   : 0;
-    transform : scale(0.9);
-}
-
-html.is-leaving .transition-fade-scale {
-    opacity   : 0;
-    transform : scale(1.1);
-}
-
 
 /* Animations */
 @keyframes fadeIn {
@@ -96,21 +89,6 @@ html.is-leaving .transition-fade-scale {
     }
 }
 
-.body {
-    display: flex;
-    margin-top : 4em;
-    width: 100%;
-    transition : 0.25s;
-    animation  : fadeIn 0.5s;
-    padding    : 0 10%;
-    justify-content: center;
-}
-
-#swup {
-    width: inherit;
-    max-width: 900px;
-}
-
 /* Search */
 .resultsDiv {
     display             : flex;
@@ -172,12 +150,13 @@ html.is-leaving .transition-fade-scale {
     color : white;
 }
 
-#swup > .Title {
-    display: block;
+.body > .Title {
+    display : block;
 }
 
 .post {
-    display          : block;
+    display          : flex;
+    flex-direction   : column;
     background-color : #383838;
     padding          : 30px 10px 50px 10px;
     align-items      : center;
@@ -187,11 +166,13 @@ html.is-leaving .transition-fade-scale {
     text-align : left;
     width      : inherit;
     margin     : 0 10px;
+    align-self : baseline;
 }
 
 .post img {
-    width      : 100%;
+    max-width  : 100%;
     margin-top : 30px;
+    max-height : 900px;
 }
 
 .commentCount {
@@ -214,7 +195,7 @@ html.is-leaving .transition-fade-scale {
     flex             : 1;
     border-bottom    : solid 1px gray;
     opacity          : 0;
-    font-size: 1em;
+    font-size        : 1em;
     animation        : comments 0.5s forwards;
 }
 
@@ -280,16 +261,19 @@ html.is-leaving .transition-fade-scale {
 }
 
 .description .img {
-    width         : 100px;
-    height        : 100px;
-    border-radius : 100px;
-    margin-top    : -1.5em;
-    border        : gray solid 3px;
+    width           : 100px;
+    height          : 100px;
+    border-radius   : 100px;
+    margin-top      : -1.5em;
+    display         : flex;
+    justify-content : center;
+    border          : gray solid 3px;
 }
 
 .description .img img {
     object-fit    : cover;
     height        : 100px;
+    width         : 100%;
     max-width     : 100px;
     max-height    : 100px;
     border-radius : 6em;
@@ -392,11 +376,14 @@ html.is-leaving .transition-fade-scale {
     justify-content : left;
     align-items     : center;
     padding         : 10px;
-    margin-bottom   : 0;
 }
 
-@media (max-width: 700px) {
+@media (max-width : 700px) {
     .body {
-        padding: 0;
+        padding : 0;
+    }
+
+    .Subs a, .Posts a {
+        margin : 10px 10px;
     }
 }

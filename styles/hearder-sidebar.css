@@ -1,134 +1,142 @@
-*::selection {
-    background-color : #b4b4b4;
-}
-
 * {
     font-family: sans-serif;
 }
 
-body {
-    margin  : 0;
-    padding : 0;
+*::selection {
+    background-color: #b4b4b4;
 }
 
 header img {
-    height : 50px;
+    height: 50px;
 }
 
 header {
-    height           : 4em;
-    line-height      : 4em;
-    text-align       : right;
-    left             : 0;
-    top              : 0;
-    width            : 100%;
-    border-bottom    : #616161 solid 2px;
-    position         : fixed;
-    background-color : #1c1c1c;
-    z-index          : 1;
+    height: 4em;
+    line-height: 4em;
+    text-align: right;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-bottom: #616161 solid 2px;
+    position: fixed;
+    background-color: #1c1c1c;
+    z-index: 1;
 }
 
 header .logo {
-    height   : 4em;
-    position : absolute;
-    display  : flex;
+    height: 4em;
+    position: absolute;
+    display: flex;
 }
 
 header .logo a i {
-    display   : block;
-    margin    : 10px 20px 0 20px;
-    font-size : 3em;
+    display: block;
+    margin: 10px 20px 0 20px;
+    font-size: 3em;
 }
 
 header .logo a i:hover {
-    color : #616161;
+    color: #616161;
 }
 
 header .logo a {
-    margin  : 0;
-    display : inline-block;
+    margin: 0;
+    display: inline-block;
 }
 
 header a {
-    right           : 0;
-    display         : block;
-    margin          : 0 10px;
-    text-decoration : none;
-    color           : rgb(255, 255, 255);
-    transition      : 0.25s;
-    cursor          : pointer;
-    outline         : none;
+    right: 0;
+    display: block;
+    margin: 0 10px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: 0.25s;
+    cursor: pointer;
+    outline: none;
 }
 
 header a:hover {
-    background              : -webkit-linear-gradient(#af7ac5, rgb(88, 209, 222));
-    -webkit-background-clip : text;
-    -webkit-text-fill-color : transparent;
+    background: -webkit-linear-gradient(#af7ac5, rgb(88, 209, 222));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 header nav {
-    display        : flex;
-    flex-direction : row-reverse;
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 #rechercher {
-    /*color: rgb(88, 209, 222);*/
-    margin-right : 10px;
+    margin-right: 10px;
 }
 
 .search {
-    margin           : 0.5em 10px;
-    display          : flex;
-    flex-direction   : row-reverse;
-    background-color : white;
-    height           : 3em;
-    border-radius    : 100px;
-    padding          : 0 5px;
-    transition       : 0.25s;
-    outline          : none;
-    border           : none;
+    margin: 0.5em 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: white;
+    height: 3em;
+    border-radius: 100px;
+    padding: 0 5px;
+    transition: 0.25s;
+    outline: none;
+    border: none;
 }
 
 .search a i {
-    background              : -webkit-linear-gradient(#af7ac5, rgb(88, 209, 222));
-    -webkit-background-clip : text;
-    -webkit-text-fill-color : transparent;
-    transition              : 0.2s;
+    background: -webkit-linear-gradient(#af7ac5, rgb(88, 209, 222));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.2s;
 }
 
 .search a i::selection {
-    background : none;
+    background: none;
 }
 
 #barderechercher {
-    line-height   : 3.25em;
-    border        : none;
-    outline       : none;
-    background    : none;
-    border-radius : 100px;
-    width         : 0;
-    transition    : 0.25s;
+    line-height: 3.25em;
+    border: none;
+    outline: none;
+    background: none;
+    border-radius: 100px;
+    width: 0;
+    transition: 0.25s;
 }
 
 .sidebar {
-    position       : fixed;
-    display        : flex;
-    flex-direction : column;
-    height         : 100vh;
-    width          : 0;
-    z-index        : 1;
-    top            : 4em;
-    left           : 0;
-    background     : linear-gradient(to bottom, #704881, rgb(53, 112, 122));
-    transition     : 0.2s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 0;
+    z-index: 1;
+    top: 4em;
+    left: 0;
+    background: linear-gradient(to bottom, #704881, rgb(53, 112, 122));
+    transition: 0.2s;
 }
 
 .sidebar a {
-    text-decoration : none;
-    display         : none;
-    font-size       : 1.4em;
-    color           : white;
-    padding         : 20px 10px;
-    border-bottom   : #3d3d3d 1px solid;
-    opacity         : 0;
+    text-decoration: none;
+    display: none;
+    font-size: 1.4em;
+    color: white;
+    padding: 20px 10px;
+    border-bottom: #3d3d3d 1px solid;
+    opacity: 0;
+}
+
+@media (max-width: 700px) {
+    header nav a {
+        display: none;
+    }
+
+    .search > a > i {
+        opacity: 1;
+    }
+
+    #rechercher {
+        display: block;
+    }
 }

@@ -27,5 +27,3 @@ function sessionCheck() {
 }
 
 sessionCheck();
-
-swup.on('contentReplaced', sessionCheck)

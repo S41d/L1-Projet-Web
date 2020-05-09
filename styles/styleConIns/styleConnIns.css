@@ -88,3 +88,16 @@ body {
 p {
     color : white;
 }
+
+@media (max-width: 600px) {
+    .box {
+        width: 250px;
+    }
+    .box input[type = "text"], .box input[type = "password"], .box input[type = "email"] {
+        width: 210px;
+    }
+    .box input[type = "text"]:focus, .box input[type = "password"]:focus, .box input[type = "email"]:focus {
+        width        : 210px;
+        border-color : #3498db;
+    }
+}

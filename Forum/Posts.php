@@ -30,8 +30,6 @@ $post = $resultpost->fetch_assoc();
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <link rel="stylesheet" href="../styles/styleForum/forumStyle.css">
-    <script defer src="../node_modules/swup/dist/swup.min.js"></script>
-    <script defer src="pageTransitionsEnable.js"></script>
     <script defer src="../styles/style.js"></script>
     <script defer src="search/searchForum.js"></script>
     <script defer src="../sessionCheck.js"></script>
@@ -46,13 +44,12 @@ $post = $resultpost->fetch_assoc();
         <a id="sandwitch-icon" onclick="sidebar()">
             <i class="material-icons">menu</i>
         </a>
-        <a href="index.php">
+        <a href="../Accueil/index.php">
             logo
         </a>
     </div>
     <div class="nav">
         <nav id="nav">
-            <a href="../Forum/">Forum</a>
             <a class="connexionButton" href="../Con-Ins/connexion.php" id="connexion">Connexion</a>
             <a class="compteButton" href="../Compte/profile.php" id="compte">Compte</a>
             <div class="search">
@@ -74,35 +71,33 @@ $post = $resultpost->fetch_assoc();
 </div>
 
 <div class="body" id="body">
-    <main id="swup" class="transition-fade-scale">
-        <?php
-        echo '<div class="Title">' . $post['Title'] . '<date>' . $post['Date'] . '</date>' . '</div>';
-        echo '<div class="post">'
-            . '<p>' . $post['Body'] . '</p>'
-            . '<img src="' . $post['Photo'] . '" alt="">'
-            . '</div>';  // post
-        echo '<div class="commentCount">' . $resultCommentCountQuery['count(commentpost.Idcomment)'] . ' commentaires </div>';
-        echo '<div class="comments">';
-        echo '<div class="newComment" id="newComment"> 
+    <?php
+    echo '<div class="Title">' . $post['Title'] . '<date>' . $post['Date'] . '</date>' . '</div>';
+    echo '<div class="post">'
+        . '<p>' . $post['Body'] . '</p>'
+        . '<img src="' . $post['Photo'] . '" alt="">'
+        . '</div>';  // post
+    echo '<div class="commentCount">' . $resultCommentCountQuery['count(commentpost.Idcomment)'] . ' commentaires </div>';
+    echo '<div class="comments">';
+    echo '<div class="newComment" id="newComment"> 
             <textarea name="newComment" id="newCommentText" placeholder="Content"> </textarea>
             <div>
                 <button id="submit">Post Comment</button>
             </div>
         </div>';
-        echo '<div id="commentsHolder">';
-        $delai = 0.7;
-        while ($comment = $resultcomments->fetch_assoc()) {
-            echo '<div style="animation-delay: ' . $delai . 's" class="commentHolder">';
-            $dateComment = $comment['dateComment'];
-            echo '<div class="commentHead">' . $comment['author'] . ' <date>' . $dateComment . '</date> ' . '</div>';
-            echo '<div class="commentBody">' . $comment['commentBody'] . '</div>';
-            echo '</div>'; // commentHolder
-            $delai += 0.1;
-        }
-        echo '</div>'; // comments
-        echo '</div>'; //commentSHolder
-        ?>
-    </main>
+    echo '<div id="commentsHolder">';
+    $delai = 0.7;
+    while ($comment = $resultcomments->fetch_assoc()) {
+        echo '<div style="animation-delay: ' . $delai . 's" class="commentHolder">';
+        $dateComment = $comment['dateComment'];
+        echo '<div class="commentHead">' . $comment['author'] . ' <date>' . $dateComment . '</date> ' . '</div>';
+        echo '<div class="commentBody">' . $comment['commentBody'] . '</div>';
+        echo '</div>'; // commentHolder
+        $delai += 0.1;
+    }
+    echo '</div>'; // comments
+    echo '</div>'; //commentSHolder
+    ?>
 </div>
 
 </body>

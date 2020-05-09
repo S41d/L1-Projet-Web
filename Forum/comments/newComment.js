@@ -26,14 +26,13 @@ function firstRun() {
         commentsHolder = document.getElementById('commentsHolder');
         submitBtn.onclick = function () {
             sendNewComment();
-            setTimeout(getComments, 50)
+            setTimeout(getComments, 100)
             document.getElementById('newCommentText').value = '';
         }
     }
 }
 
 firstRun();
-swup.on('contentReplaced', firstRun);
 
 function getAuthor() {
     let getAuthor = new XMLHttpRequest();

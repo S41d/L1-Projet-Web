@@ -2,16 +2,16 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Accueil</title>
     <link rel="stylesheet" href="../styles/hearder-sidebar.css">
-    <link rel="stylesheet" href="../styles/styleAccueil/style.css">
+    <link rel="stylesheet" href="../styles/styleAccueil/styleAccueil.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
 
-
+    <script defer src="../sessionCheck.js"></script>
     <script defer src="../styles/style.js"></script>
     <script defer src="indexScript.js"></script>
-    <script defer src="/Projet-Web-L1/sessionCheck.js"></script>
 </head>
 <body>
 
@@ -54,9 +54,8 @@
     $result = $database->query($queryfilm) or die($database->error);
     while ($photos = $result->fetch_assoc()) {
         $link = implode($photos);
-        $id = substr($link, 9, -4) . '/g';
-        $a = substr($id, 0, -2);
-        echo "<a href=\"films.php?id=$a\" style=\"background-image: url($link);\" id=\"$id\" '></a>";
+        $id = substr($link, 9, -4);
+        echo "<a href=\"films.php?id=$id\" style=\"background-image: url($link);\" id=\"$id\"></a>";
     }
     ?>
 </div>

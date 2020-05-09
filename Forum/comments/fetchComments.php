@@ -1,7 +1,10 @@
 <?php
 $postid = $_GET['id'];
 $database = new mysqli('localhost', 'root', '', 'projet');
-$commentsQuery = "Select comments.* from comments, commentpost where commentpost.idcomment = comments.idcomment and commentpost.Idpost = $postid order by dateComment DESC ";
+$commentsQuery = "Select comments.* from comments, commentpost 
+                  where commentpost.idcomment = comments.idcomment 
+                  and commentpost.Idpost = $postid 
+                  order by dateComment DESC ";
 $resultcomments = $database->query($commentsQuery);
 $delai = 0.1;
 
