@@ -1,6 +1,6 @@
 <?php
 $postid = $_GET['id'];
-$database = new mysqli('localhost', 'root', '', 'projet');
+include "../../database.php";
 $commentsQuery = "Select comments.* from comments, commentpost 
                   where commentpost.idcomment = comments.idcomment 
                   and commentpost.Idpost = $postid 

@@ -18,7 +18,7 @@ if (isset($_POST['title'], $_POST['text'], $_POST['submit'])) {
     $postTitle = $_POST['title'];
     $postText = $_POST['text'];
 
-    $database = new mysqli('localhost', 'root', '', 'projet');
+    include "../database.php";
 
     $newPostQuery = "Insert into posts(idsub, Autorpost, Title, Body, Photo) value ($idSub, $authorId , '$postTitle', '$postText', '$photo')";
     $resultPostQuery = $database->query($newPostQuery) or die('query failed : ' . mysqli_error($database));

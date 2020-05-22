@@ -1,5 +1,5 @@
 <?php
-$database = new mysqli('localhost', 'root', '', 'projet');
+include "../../database.php";
 $searchInput = $_GET['input'];
 $query = "Select * from sub s where s.namesub like '%$searchInput%'";
 $result = $database->query($query) or die(mysqli_error($database));
