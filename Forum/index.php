@@ -51,7 +51,7 @@
 <div class="body" id="body">
     <div class="Subs">
         <?php
-        include "database.php";
+        include "../database.php";
         $subquery = 'select *
                         from sub
                         order by namesub;
