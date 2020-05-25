@@ -7,6 +7,7 @@ if (isset($_POST['connecter'])) {
     $pseudoconnect = htmlspecialchars($_POST['connexionpseudo']);
     $mdpconnect = password_hash($_POST['connexionmdp'], PASSWORD_DEFAULT);
     if (!empty($pseudoconnect) && !empty($mdpconnect)) {
+        print_r("pseudo connect = ". $pseudoconnect);
         $queryReqUser = "Select * from users where Pseudo = $pseudoconnect";
         $requser = $database -> query($queryReqUser);
         $row = $requser->fetch_assoc();
