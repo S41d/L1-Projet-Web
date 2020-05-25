@@ -1,15 +1,15 @@
 <?php
 session_start();
 
-$bdd = new PDO('mysql:host=127.0.0.1; dbname=projet', 'root', '');
+include "../database.php";
 
 if (isset($_POST['connecter'])) {
     $pseudoconnect = htmlspecialchars($_POST['connexionpseudo']);
     $mdpconnect = password_hash($_POST['connexionmdp'], PASSWORD_DEFAULT);
     if (!empty($pseudoconnect) && !empty($mdpconnect)) {
-        $requser = $bdd->prepare('Select * from users where Pseudo = ?');
-        $requser->execute(array($pseudoconnect));
-        $row = $requser->fetch(PDO::FETCH_ASSOC);
+        $queryReqUser = "Select * from users where Pseudo = $pseudoconnect";
+        $requser = $database -> query($queryReqUser);
+        $row = $requser->fetch_assoc();
         $mdp = $row['Password'] ?? 'null';
         if (password_verify($_POST['connexionmdp'], $mdp)) {
             $_SESSION['Iduser'] = $row['Iduser'] ?? 'null';
