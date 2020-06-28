@@ -2,7 +2,7 @@
 session_start();
 
 $postid = $_GET['id'];
-$database = new mysqli('localhost', 'root', '', 'projet');
+include "../database.php";
 $postquery = "Select * from posts where Idpost = $postid ";
 $commentsQuery = "Select comments.* from comments, commentpost 
                 where commentpost.idcomment = comments.idcomment and commentpost.Idpost = $postid 

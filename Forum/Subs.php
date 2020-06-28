@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$database = new mysqli('localhost', 'root', '', 'projet');
+include "../database.php";
 $idsub = $_GET['idsub'];
 
 $querysub = "select * from sub where idsub=$idsub";

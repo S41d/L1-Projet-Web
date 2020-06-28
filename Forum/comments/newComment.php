@@ -1,5 +1,5 @@
 <?php
-$database = new mysqli('localhost', 'root', '', 'projet');
+include "../../database.php";
 $postid = $_GET['idPost'];
 
 

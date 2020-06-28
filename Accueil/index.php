@@ -49,7 +49,7 @@
 
 <div class="body" id="body">
     <?php
-    $database = new mysqli('localhost', 'root', '', 'projet');
+    include "../database.php";
     $queryfilm = 'Select `Link-Photo` From films';
     $result = $database->query($queryfilm) or die($database->error);
     while ($photos = $result->fetch_assoc()) {

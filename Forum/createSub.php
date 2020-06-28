@@ -19,7 +19,7 @@ if (isset($_POST['nameSub'], $_POST['descriptionSub'], $_POST['submit'])) {
     $subDescription = $_POST['descriptionSub'];
     echo '<br>' . $subDescription;
     echo '<br>' . $modId;
-    $database = new mysqli('localhost', 'root', '', 'projet');
+    include "database.php";
     $newSubQuery = "Insert into sub(namesub, description, `photo-sub`, modid) value ('$subName', '$subDescription', '$photo', $modId)";
     $resultSubQuery = $database->query($newSubQuery) or die('query failed : ' . mysqli_error($database));
     if ($resultSubQuery) {

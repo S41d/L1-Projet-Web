@@ -51,7 +51,7 @@
 <div class="body" id="body">
     <div class="Subs">
         <?php
-        $database = new mysqli('localhost', 'root', '', 'projet');
+        include "../database.php";
         $subquery = 'select *
                         from sub
                         order by namesub;
